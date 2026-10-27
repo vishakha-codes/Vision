@@ -1,0 +1,129 @@
+{
+  "version": 2,
+  "note": "AgentCore Gateway tool schemas (MCP). Source of truth for infra/deploy.py. Targets: sg-store (Lambda agent/tools_lambda/store.py), sg-cool (Lambda agent/tools_lambda/cool.py -> Graviton COOL box /v1/review). Tool I/O carries ids, hashes, scores and severity tiers only, never pixels, titles or URLs.",
+  "targets": {
+    "sg-store": [
+      {
+        "name": "policy_get",
+        "description": "Read this device's policy for one app (bundle id or bare domain): min_mode, escalation_rate_per_s, prefrost, and the counts of COOL reviews confirmed / cleared.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "device_id": {
+              "type": "string"
+            },
+            "app": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "device_id",
+            "app"
+          ]
+        }
+      },
+      {
+        "name": "policy_put",
+        "description": "Set this device's policy for one app. min_mode is medium or aggressive (never off, never below the parent's PIN mode). escalation_rate_per_s 0.5..6. prefrost: cover new pictures until checked.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "device_id": {
+              "type": "string"
+            },
+            "app": {
+              "type": "string"
+            },
+            "min_mode": {
+              "type": "string"
+            },
+            "escalation_rate_per_s": {
+              "type": "number"
+            },
+            "prefrost": {
+              "type": "boolean"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "device_id",
+            "app",
+            "min_mode",
+            "escalation_rate_per_s",
+            "prefrost"
+          ]
+        }
+      },
+      {
+        "name": "verdict_put",
+        "description": "Store the final verdict for one escalated picture (by dHash): CONFIRM (keep covered), CLEAR (uncover), or KEEP_UNSURE.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "device_id": {
+              "type": "string"
+            },
+            "app": {
+              "type": "string"
+            },
+            "dhash": {
+              "type": "string"
+            },
+            "verdict": {
+              "type": "string"
+            },
+            "score": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "device_id",
+            "dhash",
+            "verdict"
+          ]
+        }
+      },
+      {
+        "name": "audit_append",
+        "description": "Append one short neutral audit line for the parent. Never describe picture content.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "device_id": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "device_id",
+            "detail"
+          ]
+        }
+      }
+    ],
+    "sg-cool": [
+      {
+        "name": "cool_second_look",
+        "description": "Deep multi-scale OpenCV review (NudeNet 320n on COOL OpenCV, AWS Graviton) of the escalated picture the box holds in RAM. Returns found, verdict.state (SAFE | UNSURE | UNSAFE), score, severity tiers.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "dhash": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dhash"
+          ]
+        }
+      }
+    ]
+  }
+}

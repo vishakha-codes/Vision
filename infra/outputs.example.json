@@ -1,0 +1,19 @@
+{
+  "box_private_ip": "<ip>",
+  "gateway_arn": "arn:aws:bedrock-agentcore:us-east-1:<account-id>:gateway/screen-guardian-gw-<id>",
+  "gateway_id": "screen-guardian-gw-<id>",
+  "gateway_url": "https://screen-guardian-gw-<id>.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp",
+  "lambda_cool": "arn:aws:lambda:us-east-1:<account-id>:function:sg-tool-cool",
+  "lambda_store": "arn:aws:lambda:us-east-1:<account-id>:function:sg-tool-store",
+  "role_gateway": "arn:aws:iam::<account-id>:role/screen-guardian-gateway",
+  "role_runtime": "arn:aws:iam::<account-id>:role/screen-guardian-agent-runtime",
+  "role_tool_cool": "arn:aws:iam::<account-id>:role/screen-guardian-tool-cool",
+  "role_tool_store": "arn:aws:iam::<account-id>:role/screen-guardian-tool-store",
+  "runtime_arn": "arn:aws:bedrock-agentcore:us-east-1:<account-id>:runtime/screen_guardian_steward-<id>",
+  "runtime_id": "screen_guardian_steward-<id>",
+  "runtime_status": "READY",
+  "runtime_version": "10",
+  "sg_tool_cool": "<sg-id>",
+  "target_sg-cool": "<target-id>",
+  "target_sg-store": "<target-id>"
+}

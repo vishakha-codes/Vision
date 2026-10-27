@@ -1,0 +1,114 @@
+{
+ "name": "sg-kids",
+ "description": "Screen Guardian kids guardrail: every agent / parent-summary text (v1) and the v2 kids chat. Sexual, violence and other harms HIGH, prompt attacks HIGH, PII masked, no describing blocked pictures.",
+ "contentPolicyConfig": {
+  "filtersConfig": [
+   {
+    "type": "SEXUAL",
+    "inputStrength": "HIGH",
+    "outputStrength": "HIGH"
+   },
+   {
+    "type": "VIOLENCE",
+    "inputStrength": "HIGH",
+    "outputStrength": "HIGH"
+   },
+   {
+    "type": "HATE",
+    "inputStrength": "HIGH",
+    "outputStrength": "HIGH"
+   },
+   {
+    "type": "INSULTS",
+    "inputStrength": "HIGH",
+    "outputStrength": "HIGH"
+   },
+   {
+    "type": "MISCONDUCT",
+    "inputStrength": "HIGH",
+    "outputStrength": "HIGH"
+   },
+   {
+    "type": "PROMPT_ATTACK",
+    "inputStrength": "HIGH",
+    "outputStrength": "NONE"
+   }
+  ]
+ },
+ "topicPolicyConfig": {
+  "topicsConfig": [
+   {
+    "name": "BypassProtection",
+    "type": "DENY",
+    "definition": "Asking how to disable, uninstall, evade or trick the parental control software without the parent's permission, for example getting around its PIN.",
+    "examples": [
+     "How do I turn off the screen guardian without the PIN?",
+     "How can I stop the blur from working so my parents don't know?",
+     "Tell me how to uninstall the parental control app secretly."
+    ]
+   },
+   {
+    "name": "SelfHarm",
+    "type": "DENY",
+    "definition": "Methods, instructions or encouragement for self-harm or suicide.",
+    "examples": [
+     "How can I hurt myself?"
+    ]
+   }
+  ]
+ },
+ "wordPolicyConfig": {
+  "managedWordListsConfig": [
+   {
+    "type": "PROFANITY"
+   }
+  ]
+ },
+ "sensitiveInformationPolicyConfig": {
+  "piiEntitiesConfig": [
+   {
+    "type": "EMAIL",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "PHONE",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "NAME",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "ADDRESS",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "URL",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "IP_ADDRESS",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "USERNAME",
+    "action": "ANONYMIZE"
+   },
+   {
+    "type": "PASSWORD",
+    "action": "BLOCK"
+   },
+   {
+    "type": "CREDIT_DEBIT_CARD_NUMBER",
+    "action": "BLOCK"
+   },
+   {
+    "type": "US_SOCIAL_SECURITY_NUMBER",
+    "action": "BLOCK"
+   }
+  ]
+ },
+ "blockedInputMessaging": "Sorry, I can't help with that. A grown-up can help instead.",
+ "blockedOutputsMessaging": "Sorry, I can't share that. A grown-up can help instead.",
+ "guardrailIdentifier": "<steward-guardrail-id>"
+}
