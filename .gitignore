@@ -1,0 +1,85 @@
+# Isolated venv — never commit
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# Secrets and local env
+.secrets/
+.prefs/
+.env
+.env.*
+!.env.example
+credentials
+credentials.json
+*.pem
+*.key
+
+# Raw captures and local media (keep synthetic fixtures opt-in)
+captures/
+raw/
+*.mp4
+!fixtures/safe/*.mp4
+
+# Optional local copies of NudeNet / ONNX weights (bundled wheel is enough)
+.models/
+
+# Caches and downloads that must stay inside this folder
+.cache/
+pip-wheel-cache/
+*.log
+
+# Local eval outputs
+experiments/
+
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Swift island build output and regenerable snapshots
+island/.build/
+island/.swiftpm/
+island/snapshots/
+
+# Infra build artifacts (zips, CDK output, node)
+infra/build/
+infra/cdk.out/
+node_modules/
+
+# Raw local run logs from the user's real screen (privacy)
+logs.md
+logs1.md
+
+# Eval evidence: keep results, drop heavy media
+experiments/
+!experiments/
+!experiments/**/
+!experiments/**/*.json
+!experiments/**/*.jsonl
+!experiments/**/*.csv
+!experiments/**/*.md
+experiments/**/*.mp4
+experiments/**/*.npz
+experiments/**/*.raw
+
+# v2 kids chat build output
+kids_chat/infra/build/
+
+# Account-specific ids and deploy outputs stay local (templates: *.example.json)
+aws.local.json
+infra/outputs.json
+kids_chat/infra/outputs.json
+.leakcheck.local
