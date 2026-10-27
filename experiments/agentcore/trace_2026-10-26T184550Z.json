@@ -1,0 +1,2188 @@
+{
+ "run": "f17cad0b",
+ "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+ "time_utc": "2026-10-26T18:45:50Z",
+ "runtime_arn": "arn:aws:bedrock-agentcore:us-east-1:<account-id>:runtime/screen_guardian_steward-<id>",
+ "claim": "The COOL deep-review output (OpenCV on Graviton) decides CONFIRM/CLEAR; those verdicts are the history that changes the later heavy_page policy for the same app.",
+ "policy_before": {
+  "photos.example.org": {
+   "min_mode": "aggressive",
+   "escalation_rate_per_s": 3.0,
+   "prefrost": false
+  },
+  "news.example.com": {
+   "min_mode": "aggressive",
+   "escalation_rate_per_s": 3.0,
+   "prefrost": false
+  }
+ },
+ "policy_after": {
+  "photos.example.org": {
+   "min_mode": "aggressive",
+   "escalation_rate_per_s": 5.0,
+   "prefrost": true
+  },
+  "news.example.com": {
+   "min_mode": "aggressive",
+   "escalation_rate_per_s": 1.0,
+   "prefrost": false
+  }
+ },
+ "verdicts": [
+  {
+   "app": "photos.example.org",
+   "l2": "UNSURE",
+   "agent": "CONFIRM",
+   "deep_review": {
+    "state": "UNSURE",
+    "score": 0.2392,
+    "tiers": [
+     "explicit"
+    ]
+   }
+  },
+  {
+   "app": "photos.example.org",
+   "l2": "UNSURE",
+   "agent": "CLEAR",
+   "deep_review": {
+    "state": "SAFE",
+    "score": 0.1318,
+    "tiers": []
+   }
+  },
+  {
+   "app": "news.example.com",
+   "l2": "UNSURE",
+   "agent": "CLEAR",
+   "deep_review": {
+    "state": "SAFE",
+    "score": 0.125,
+    "tiers": []
+   }
+  },
+  {
+   "app": "news.example.com",
+   "l2": "UNSURE",
+   "agent": "CLEAR",
+   "deep_review": {
+    "state": "SAFE",
+    "score": 0.0,
+    "tiers": []
+   }
+  },
+  {
+   "app": "news.example.com",
+   "l2": "UNSURE",
+   "agent": "CLEAR",
+   "deep_review": {
+    "state": "SAFE",
+    "score": 0.0,
+    "tiers": []
+   }
+  }
+ ],
+ "summary": "In the last 25 minutes, Screen Guardian kept 9 pictures hidden behind a cover, and briefly covered 40 more until they were checked. A deeper cloud check kept 1 of them hidden and found 4 fine to show. Nothing else needs your attention right now.",
+ "steps": [
+  {
+   "step": "heavy_page BEFORE reviews: photos.example.org",
+   "event": {
+    "type": "heavy_page",
+    "app": "photos.example.org",
+    "mode_floor": "aggressive",
+    "pictures_per_min": 90,
+    "escalations_per_min": 8,
+    "unsure_rate": 0.12,
+    "shed_rate": 0.25,
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "heavy_page",
+    "app": "photos.example.org",
+    "dhash": "",
+    "verdict": "NONE",
+    "policy": {
+     "min_mode": "aggressive",
+     "escalation_rate_per_s": 3.0,
+     "prefrost": false
+    },
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 5184.3,
+    "note": "Heavy page policy updated without changing confirmed/cleared counts",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040353.721,
+     "step": "event",
+     "event": {
+      "type": "heavy_page",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "photos.example.org",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "pictures_per_min": 90.0,
+      "escalations_per_min": 8.0,
+      "unsure_rate": 0.12,
+      "shed_rate": 0.25
+     }
+    },
+    {
+     "t": 1793040353.852,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040355.244,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 1392.2,
+     "usage": {
+      "inputTokens": 1995,
+      "outputTokens": 60,
+      "totalTokens": 2055
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040355.483,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "photos.example.org",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": false,
+      "policy": {
+       "app": "photos.example.org",
+       "min_mode": null,
+       "escalation_rate_per_s": 3.0,
+       "prefrost": false,
+       "confirmed": 0,
+       "cleared": 0
+      }
+     }
+    },
+    {
+     "t": 1793040357.251,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 1768.0,
+     "usage": {
+      "inputTokens": 2131,
+      "outputTokens": 157,
+      "totalTokens": 2288
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_put",
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040357.365,
+     "step": "tool",
+     "tool": "policy_put",
+     "args": {
+      "app": "photos.example.org",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "min_mode": "aggressive",
+      "escalation_rate_per_s": 3.0,
+      "prefrost": false,
+      "note": ""
+     },
+     "result": {
+      "ok": true,
+      "app": "photos.example.org",
+      "min_mode": "aggressive",
+      "escalation_rate_per_s": 3.0,
+      "prefrost": false
+     }
+    },
+    {
+     "t": 1793040357.524,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "heavy_page",
+      "detail": "Heavy page policy updated"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:45:57#1616e3"
+     }
+    },
+    {
+     "t": 1793040358.905,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "end_turn",
+     "ms": 1381.6,
+     "usage": {
+      "inputTokens": 2390,
+      "outputTokens": 60,
+      "totalTokens": 2450
+     },
+     "text": "{\"verdict\": \"NONE\", \"policy\": {\"app\": \"photos.example.org\", \"min_mode\": \"aggressive\", \"escalation_rate_per_s\": 3, \"prefrost\": false}, \"note\": \"Heavy page policy updated without changing confirmed/cleared counts\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "heavy_page BEFORE reviews: news.example.com",
+   "event": {
+    "type": "heavy_page",
+    "app": "news.example.com",
+    "mode_floor": "aggressive",
+    "pictures_per_min": 90,
+    "escalations_per_min": 8,
+    "unsure_rate": 0.12,
+    "shed_rate": 0.25,
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "heavy_page",
+    "app": "news.example.com",
+    "dhash": "",
+    "verdict": "NONE",
+    "policy": {
+     "min_mode": "aggressive",
+     "escalation_rate_per_s": 3.0,
+     "prefrost": false
+    },
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 4189.3,
+    "note": "Heavy page policy adjusted for news.example.com",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040362.664,
+     "step": "event",
+     "event": {
+      "type": "heavy_page",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "pictures_per_min": 90.0,
+      "escalations_per_min": 8.0,
+      "unsure_rate": 0.12,
+      "shed_rate": 0.25
+     }
+    },
+    {
+     "t": 1793040362.784,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040363.811,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 1026.3,
+     "usage": {
+      "inputTokens": 1995,
+      "outputTokens": 60,
+      "totalTokens": 2055
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040363.943,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "news.example.com",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": false,
+      "policy": {
+       "app": "news.example.com",
+       "min_mode": null,
+       "escalation_rate_per_s": 3.0,
+       "prefrost": false,
+       "confirmed": 0,
+       "cleared": 0
+      }
+     }
+    },
+    {
+     "t": 1793040365.05,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 1106.9,
+     "usage": {
+      "inputTokens": 2131,
+      "outputTokens": 157,
+      "totalTokens": 2288
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_put",
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040365.159,
+     "step": "tool",
+     "tool": "policy_put",
+     "args": {
+      "app": "news.example.com",
+      "min_mode": "aggressive",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "escalation_rate_per_s": 3.0,
+      "prefrost": false,
+      "note": ""
+     },
+     "result": {
+      "ok": true,
+      "app": "news.example.com",
+      "min_mode": "aggressive",
+      "escalation_rate_per_s": 3.0,
+      "prefrost": false
+     }
+    },
+    {
+     "t": 1793040365.346,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "heavy_page",
+      "detail": "Heavy page policy adjusted"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:46:05#56b327"
+     }
+    },
+    {
+     "t": 1793040366.853,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "end_turn",
+     "ms": 1507.5,
+     "usage": {
+      "inputTokens": 2389,
+      "outputTokens": 57,
+      "totalTokens": 2446
+     },
+     "text": "{\"verdict\": \"NONE\", \"policy\": {\"app\": \"news.example.com\", \"min_mode\": \"aggressive\", \"escalation_rate_per_s\": 3, \"prefrost\": false}, \"note\": \"Heavy page policy adjusted for news.example.com\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "L2 second look (photos.example.org, seed 20174)",
+   "l2": {
+    "verdict": {
+     "state": "UNSAFE",
+     "score": 0.4067,
+     "labels": [
+      "BUTTOCKS_COVERED"
+     ]
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 186.0,
+     "total": 187.27
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 0.0,
+    "source": "cloud"
+   }
+  },
+  {
+   "step": "L2 second look (photos.example.org, seed 20327)",
+   "l2": {
+    "verdict": {
+     "state": "UNSURE",
+     "score": 0.2059,
+     "labels": [
+      "BUTTOCKS_EXPOSED"
+     ]
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 185.62,
+     "total": 187.04
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 120.0,
+    "source": "cloud"
+   },
+   "event": {
+    "type": "stubborn_unsure",
+    "app": "photos.example.org",
+    "mode": "aggressive",
+    "mode_floor": "aggressive",
+    "dhash": "c0899380a0603898",
+    "tiers": [
+     "explicit"
+    ],
+    "l1_score": 0.2059,
+    "l2_score": 0.2059,
+    "l2_state": "UNSURE",
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "stubborn_unsure",
+    "app": "photos.example.org",
+    "dhash": "c0899380a0603898",
+    "verdict": "CONFIRM",
+    "policy": {
+     "min_mode": "aggressive",
+     "escalation_rate_per_s": 5.0,
+     "prefrost": true
+    },
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 8655.6,
+    "note": "closing note withheld by the Guardrail",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040369.976,
+     "step": "event",
+     "event": {
+      "type": "stubborn_unsure",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "photos.example.org",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "dhash": "c0899380a0603898",
+      "tiers": [
+       "explicit"
+      ],
+      "l1_score": 0.206,
+      "l2_score": 0.206,
+      "l2_state": "UNSURE"
+     }
+    },
+    {
+     "t": 1793040370.099,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040371.283,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 1184.0,
+     "usage": {
+      "inputTokens": 2006,
+      "outputTokens": 47,
+      "totalTokens": 2053
+     },
+     "text": "",
+     "tool_uses": [
+      "cool_second_look"
+     ]
+    },
+    {
+     "t": 1793040372.258,
+     "step": "tool",
+     "tool": "cool_second_look",
+     "args": {
+      "dhash": "c0899380a0603898",
+      "mode": "aggressive"
+     },
+     "result": {
+      "found": true,
+      "detail": "",
+      "verdict": {
+       "state": "UNSURE",
+       "score": 0.2392,
+       "tiers": [
+        "explicit"
+       ]
+      },
+      "top": [
+       {
+        "tier": "explicit",
+        "score": 0.2392
+       },
+       {
+        "tier": "explicit",
+        "score": 0.2392
+       },
+       {
+        "tier": "explicit",
+        "score": 0.2392
+       },
+       {
+        "tier": "explicit",
+        "score": 0.2059
+       },
+       {
+        "tier": "explicit",
+        "score": 0.2059
+       }
+      ],
+      "n_views": 15,
+      "opencv": {
+       "version": "4.14.0-pre",
+       "cool": true
+      },
+      "timings_ms": {
+       "infer": 459.66,
+       "total": 460.09
+      },
+      "image_persisted": false
+     }
+    },
+    {
+     "t": 1793040373.163,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 905.1,
+     "usage": {
+      "inputTokens": 2247,
+      "outputTokens": 60,
+      "totalTokens": 2307
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040373.306,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "photos.example.org",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "photos.example.org",
+       "escalation_rate_per_s": 3,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": false,
+       "updated": 1793040357
+      }
+     }
+    },
+    {
+     "t": 1793040374.674,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "tool_use",
+     "ms": 1368.0,
+     "usage": {
+      "inputTokens": 2385,
+      "outputTokens": 105,
+      "totalTokens": 2490
+     },
+     "text": "",
+     "tool_uses": [
+      "verdict_put"
+     ]
+    },
+    {
+     "t": 1793040374.805,
+     "step": "tool",
+     "tool": "verdict_put",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "photos.example.org",
+      "dhash": "c0899380a0603898",
+      "verdict": "CONFIRM",
+      "source": "agent",
+      "score": 0.2392
+     },
+     "result": {
+      "ok": true,
+      "dhash": "c0899380a0603898",
+      "verdict": "CONFIRM",
+      "app": "photos.example.org"
+     }
+    },
+    {
+     "t": 1793040375.92,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 3,
+     "stop": "tool_use",
+     "ms": 1114.8,
+     "usage": {
+      "inputTokens": 2550,
+      "outputTokens": 99,
+      "totalTokens": 2649
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_put"
+     ]
+    },
+    {
+     "t": 1793040376.081,
+     "step": "tool",
+     "tool": "policy_put",
+     "args": {
+      "app": "photos.example.org",
+      "min_mode": "aggressive",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "escalation_rate_per_s": 5.0,
+      "prefrost": true,
+      "note": ""
+     },
+     "result": {
+      "ok": true,
+      "app": "photos.example.org",
+      "min_mode": "aggressive",
+      "escalation_rate_per_s": 5.0,
+      "prefrost": true
+     }
+    },
+    {
+     "t": 1793040377.218,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 4,
+     "stop": "tool_use",
+     "ms": 1136.7,
+     "usage": {
+      "inputTokens": 2711,
+      "outputTokens": 65,
+      "totalTokens": 2776
+     },
+     "text": "",
+     "tool_uses": [
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040377.318,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "stubborn_unsure",
+      "detail": "Confirmed explicit content in photos.example.org"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:46:17#524a70"
+     }
+    },
+    {
+     "t": 1793040378.632,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 5,
+     "stop": "guardrail_intervened",
+     "ms": 1313.5,
+     "usage": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0
+     },
+     "text": "Sorry, I can't share that. A grown-up can help instead.",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "L2 second look (photos.example.org, seed 1002)",
+   "l2": {
+    "verdict": {
+     "state": "SAFE",
+     "score": 0.1297,
+     "labels": []
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 183.29,
+     "total": 184.77
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 0.0,
+    "source": "cloud"
+   }
+  },
+  {
+   "step": "L2 second look (photos.example.org, seed 20158)",
+   "l2": {
+    "verdict": {
+     "state": "UNSURE",
+     "score": 0.1876,
+     "labels": [
+      "BUTTOCKS_EXPOSED"
+     ]
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 183.12,
+     "total": 185.49
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 120.0,
+    "source": "cloud"
+   },
+   "event": {
+    "type": "stubborn_unsure",
+    "app": "photos.example.org",
+    "mode": "aggressive",
+    "mode_floor": "aggressive",
+    "dhash": "3b3f377ffffef4f4",
+    "tiers": [
+     "explicit"
+    ],
+    "l1_score": 0.1876,
+    "l2_score": 0.1876,
+    "l2_state": "UNSURE",
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "stubborn_unsure",
+    "app": "photos.example.org",
+    "dhash": "3b3f377ffffef4f4",
+    "verdict": "CLEAR",
+    "policy": null,
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 7088.3,
+    "note": "picture cleared after review",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040381.561,
+     "step": "event",
+     "event": {
+      "type": "stubborn_unsure",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "photos.example.org",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "dhash": "3b3f377ffffef4f4",
+      "tiers": [
+       "explicit"
+      ],
+      "l1_score": 0.188,
+      "l2_score": 0.188,
+      "l2_state": "UNSURE"
+     }
+    },
+    {
+     "t": 1793040381.682,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040382.654,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 972.0,
+     "usage": {
+      "inputTokens": 2008,
+      "outputTokens": 50,
+      "totalTokens": 2058
+     },
+     "text": "",
+     "tool_uses": [
+      "cool_second_look"
+     ]
+    },
+    {
+     "t": 1793040383.278,
+     "step": "tool",
+     "tool": "cool_second_look",
+     "args": {
+      "dhash": "3b3f377ffffef4f4",
+      "mode": "aggressive"
+     },
+     "result": {
+      "found": true,
+      "detail": "",
+      "verdict": {
+       "state": "SAFE",
+       "score": 0.1318,
+       "tiers": []
+      },
+      "top": [
+       {
+        "tier": "explicit",
+        "score": 0.1318
+       }
+      ],
+      "n_views": 15,
+      "opencv": {
+       "version": "4.14.0-pre",
+       "cool": true
+      },
+      "timings_ms": {
+       "infer": 455.02,
+       "total": 455.42
+      },
+      "image_persisted": false
+     }
+    },
+    {
+     "t": 1793040384.375,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 1096.5,
+     "usage": {
+      "inputTokens": 2189,
+      "outputTokens": 60,
+      "totalTokens": 2249
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040384.541,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "photos.example.org",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "photos.example.org",
+       "confirmed": 1,
+       "escalation_rate_per_s": 5,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": true,
+       "updated": 1793040376
+      }
+     }
+    },
+    {
+     "t": 1793040385.656,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "tool_use",
+     "ms": 1114.6,
+     "usage": {
+      "inputTokens": 2333,
+      "outputTokens": 108,
+      "totalTokens": 2441
+     },
+     "text": "",
+     "tool_uses": [
+      "verdict_put"
+     ]
+    },
+    {
+     "t": 1793040385.823,
+     "step": "tool",
+     "tool": "verdict_put",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "photos.example.org",
+      "dhash": "3b3f377ffffef4f4",
+      "verdict": "CLEAR",
+      "source": "agent",
+      "score": 0.1318
+     },
+     "result": {
+      "ok": true,
+      "dhash": "3b3f377ffffef4f4",
+      "verdict": "CLEAR",
+      "app": "photos.example.org"
+     }
+    },
+    {
+     "t": 1793040387.051,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 3,
+     "stop": "tool_use",
+     "ms": 1228.3,
+     "usage": {
+      "inputTokens": 2503,
+      "outputTokens": 62,
+      "totalTokens": 2565
+     },
+     "text": "",
+     "tool_uses": [
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040387.483,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "stubborn_unsure",
+      "detail": "picture cleared after review"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:46:27#851e91"
+     }
+    },
+    {
+     "t": 1793040388.649,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 4,
+     "stop": "end_turn",
+     "ms": 1166.5,
+     "usage": {
+      "inputTokens": 2618,
+      "outputTokens": 23,
+      "totalTokens": 2641
+     },
+     "text": "{\"verdict\": \"CLEAR\", \"policy\": null, \"note\": \"picture cleared after review\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "L2 second look (photos.example.org, seed 1003)",
+   "l2": {
+    "verdict": {
+     "state": "SAFE",
+     "score": 0.0,
+     "labels": []
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 184.36,
+     "total": 185.18
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 0.0,
+    "source": "cloud"
+   }
+  },
+  {
+   "step": "L2 second look (news.example.com, seed 20154)",
+   "l2": {
+    "verdict": {
+     "state": "SAFE",
+     "score": 0.1422,
+     "labels": []
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 183.16,
+     "total": 184.4
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 0.0,
+    "source": "cloud"
+   }
+  },
+  {
+   "step": "L2 second look (news.example.com, seed 20199)",
+   "l2": {
+    "verdict": {
+     "state": "UNSURE",
+     "score": 0.2138,
+     "labels": [
+      "FEMALE_BREAST_EXPOSED"
+     ]
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 182.88,
+     "total": 185.56
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 120.0,
+    "source": "cloud"
+   },
+   "event": {
+    "type": "stubborn_unsure",
+    "app": "news.example.com",
+    "mode": "aggressive",
+    "mode_floor": "aggressive",
+    "dhash": "00a180c0c8a88bce",
+    "tiers": [
+     "explicit"
+    ],
+    "l1_score": 0.2138,
+    "l2_score": 0.2138,
+    "l2_state": "UNSURE",
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "stubborn_unsure",
+    "app": "news.example.com",
+    "dhash": "00a180c0c8a88bce",
+    "verdict": "CLEAR",
+    "policy": null,
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 6467.3,
+    "note": "picture cleared after review",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040392.535,
+     "step": "event",
+     "event": {
+      "type": "stubborn_unsure",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "dhash": "00a180c0c8a88bce",
+      "tiers": [
+       "explicit"
+      ],
+      "l1_score": 0.214,
+      "l2_score": 0.214,
+      "l2_state": "UNSURE"
+     }
+    },
+    {
+     "t": 1793040392.659,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040393.619,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 960.3,
+     "usage": {
+      "inputTokens": 2008,
+      "outputTokens": 50,
+      "totalTokens": 2058
+     },
+     "text": "",
+     "tool_uses": [
+      "cool_second_look"
+     ]
+    },
+    {
+     "t": 1793040394.236,
+     "step": "tool",
+     "tool": "cool_second_look",
+     "args": {
+      "dhash": "00a180c0c8a88bce",
+      "mode": "aggressive"
+     },
+     "result": {
+      "found": true,
+      "detail": "",
+      "verdict": {
+       "state": "SAFE",
+       "score": 0.125,
+       "tiers": []
+      },
+      "top": [
+       {
+        "tier": "explicit",
+        "score": 0.125
+       },
+       {
+        "tier": "explicit",
+        "score": 0.125
+       },
+       {
+        "tier": "explicit",
+        "score": 0.125
+       }
+      ],
+      "n_views": 15,
+      "opencv": {
+       "version": "4.14.0-pre",
+       "cool": true
+      },
+      "timings_ms": {
+       "infer": 454.08,
+       "total": 454.5
+      },
+      "image_persisted": false
+     }
+    },
+    {
+     "t": 1793040395.172,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 935.4,
+     "usage": {
+      "inputTokens": 2215,
+      "outputTokens": 60,
+      "totalTokens": 2275
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040395.347,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "news.example.com",
+       "escalation_rate_per_s": 3,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": false,
+       "updated": 1793040365
+      }
+     }
+    },
+    {
+     "t": 1793040396.473,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "tool_use",
+     "ms": 1125.7,
+     "usage": {
+      "inputTokens": 2353,
+      "outputTokens": 107,
+      "totalTokens": 2460
+     },
+     "text": "",
+     "tool_uses": [
+      "verdict_put"
+     ]
+    },
+    {
+     "t": 1793040396.605,
+     "step": "tool",
+     "tool": "verdict_put",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "dhash": "00a180c0c8a88bce",
+      "verdict": "CLEAR",
+      "source": "agent",
+      "score": 0.125
+     },
+     "result": {
+      "ok": true,
+      "dhash": "00a180c0c8a88bce",
+      "verdict": "CLEAR",
+      "app": "news.example.com"
+     }
+    },
+    {
+     "t": 1793040397.693,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 3,
+     "stop": "tool_use",
+     "ms": 1088.3,
+     "usage": {
+      "inputTokens": 2522,
+      "outputTokens": 62,
+      "totalTokens": 2584
+     },
+     "text": "",
+     "tool_uses": [
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040397.863,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "stubborn_unsure",
+      "detail": "picture cleared after review"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:46:37#28ba41"
+     }
+    },
+    {
+     "t": 1793040399.002,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 4,
+     "stop": "end_turn",
+     "ms": 1139.2,
+     "usage": {
+      "inputTokens": 2637,
+      "outputTokens": 23,
+      "totalTokens": 2660
+     },
+     "text": "{\"verdict\": \"CLEAR\", \"policy\": null, \"note\": \"picture cleared after review\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "L2 second look (news.example.com, seed 20284)",
+   "l2": {
+    "verdict": {
+     "state": "UNSURE",
+     "score": 0.1858,
+     "labels": [
+      "BUTTOCKS_EXPOSED"
+     ]
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 184.41,
+     "total": 186.34
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 120.0,
+    "source": "cloud"
+   },
+   "event": {
+    "type": "stubborn_unsure",
+    "app": "news.example.com",
+    "mode": "aggressive",
+    "mode_floor": "aggressive",
+    "dhash": "70744444c0206040",
+    "tiers": [
+     "explicit"
+    ],
+    "l1_score": 0.1858,
+    "l2_score": 0.1858,
+    "l2_state": "UNSURE",
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "stubborn_unsure",
+    "app": "news.example.com",
+    "dhash": "70744444c0206040",
+    "verdict": "CLEAR",
+    "policy": null,
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 6231.7,
+    "note": "picture cleared after review",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040402.194,
+     "step": "event",
+     "event": {
+      "type": "stubborn_unsure",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "dhash": "70744444c0206040",
+      "tiers": [
+       "explicit"
+      ],
+      "l1_score": 0.186,
+      "l2_score": 0.186,
+      "l2_state": "UNSURE"
+     }
+    },
+    {
+     "t": 1793040402.312,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040403.292,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 980.7,
+     "usage": {
+      "inputTokens": 2005,
+      "outputTokens": 47,
+      "totalTokens": 2052
+     },
+     "text": "",
+     "tool_uses": [
+      "cool_second_look"
+     ]
+    },
+    {
+     "t": 1793040403.802,
+     "step": "tool",
+     "tool": "cool_second_look",
+     "args": {
+      "dhash": "70744444c0206040",
+      "mode": "aggressive"
+     },
+     "result": {
+      "found": true,
+      "detail": "",
+      "verdict": {
+       "state": "SAFE",
+       "score": 0.0,
+       "tiers": []
+      },
+      "top": [],
+      "n_views": 12,
+      "opencv": {
+       "version": "4.14.0-pre",
+       "cool": true
+      },
+      "timings_ms": {
+       "infer": 357.26,
+       "total": 357.55
+      },
+      "image_persisted": false
+     }
+    },
+    {
+     "t": 1793040404.797,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 995.4,
+     "usage": {
+      "inputTokens": 2166,
+      "outputTokens": 60,
+      "totalTokens": 2226
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040404.88,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "news.example.com",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "news.example.com",
+       "cleared": 1,
+       "escalation_rate_per_s": 3,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": false,
+       "updated": 1793040396
+      }
+     }
+    },
+    {
+     "t": 1793040405.97,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "tool_use",
+     "ms": 1090.5,
+     "usage": {
+      "inputTokens": 2311,
+      "outputTokens": 79,
+      "totalTokens": 2390
+     },
+     "text": "",
+     "tool_uses": [
+      "verdict_put"
+     ]
+    },
+    {
+     "t": 1793040406.142,
+     "step": "tool",
+     "tool": "verdict_put",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "dhash": "70744444c0206040",
+      "verdict": "CLEAR",
+      "source": "agent",
+      "score": 0.0
+     },
+     "result": {
+      "ok": true,
+      "dhash": "70744444c0206040",
+      "verdict": "CLEAR",
+      "app": "news.example.com"
+     }
+    },
+    {
+     "t": 1793040407.203,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 3,
+     "stop": "tool_use",
+     "ms": 1060.9,
+     "usage": {
+      "inputTokens": 2449,
+      "outputTokens": 62,
+      "totalTokens": 2511
+     },
+     "text": "",
+     "tool_uses": [
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040407.318,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "stubborn_unsure",
+      "detail": "picture cleared after review"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:46:47#7c2a2a"
+     }
+    },
+    {
+     "t": 1793040408.425,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 4,
+     "stop": "end_turn",
+     "ms": 1107.6,
+     "usage": {
+      "inputTokens": 2567,
+      "outputTokens": 23,
+      "totalTokens": 2590
+     },
+     "text": "{\"verdict\": \"CLEAR\", \"policy\": null, \"note\": \"picture cleared after review\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "L2 second look (news.example.com, seed 20310)",
+   "l2": {
+    "verdict": {
+     "state": "SAFE",
+     "score": 0.1229,
+     "labels": []
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 182.22,
+     "total": 184.06
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 0.0,
+    "source": "cloud"
+   }
+  },
+  {
+   "step": "L2 second look (news.example.com, seed 20324)",
+   "l2": {
+    "verdict": {
+     "state": "UNSURE",
+     "score": 0.1741,
+     "labels": [
+      "BUTTOCKS_EXPOSED"
+     ]
+    },
+    "n_views": 6,
+    "timings_ms": {
+     "infer": 183.62,
+     "total": 185.04
+    },
+    "opencv": {
+     "version": "4.14.0-pre",
+     "cool": true
+    },
+    "review_hold_s": 120.0,
+    "source": "cloud"
+   },
+   "event": {
+    "type": "stubborn_unsure",
+    "app": "news.example.com",
+    "mode": "aggressive",
+    "mode_floor": "aggressive",
+    "dhash": "583a3a1e3a7adbb3",
+    "tiers": [
+     "explicit"
+    ],
+    "l1_score": 0.1741,
+    "l2_score": 0.1741,
+    "l2_state": "UNSURE",
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "stubborn_unsure",
+    "app": "news.example.com",
+    "dhash": "583a3a1e3a7adbb3",
+    "verdict": "CLEAR",
+    "policy": null,
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 6749.1,
+    "note": "picture cleared after review",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040411.894,
+     "step": "event",
+     "event": {
+      "type": "stubborn_unsure",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "dhash": "583a3a1e3a7adbb3",
+      "tiers": [
+       "explicit"
+      ],
+      "l1_score": 0.174,
+      "l2_score": 0.174,
+      "l2_state": "UNSURE"
+     }
+    },
+    {
+     "t": 1793040412.018,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040413.059,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 1041.3,
+     "usage": {
+      "inputTokens": 2010,
+      "outputTokens": 52,
+      "totalTokens": 2062
+     },
+     "text": "",
+     "tool_uses": [
+      "cool_second_look"
+     ]
+    },
+    {
+     "t": 1793040413.568,
+     "step": "tool",
+     "tool": "cool_second_look",
+     "args": {
+      "dhash": "583a3a1e3a7adbb3",
+      "mode": "aggressive"
+     },
+     "result": {
+      "found": true,
+      "detail": "",
+      "verdict": {
+       "state": "SAFE",
+       "score": 0.0,
+       "tiers": []
+      },
+      "top": [],
+      "n_views": 12,
+      "opencv": {
+       "version": "4.14.0-pre",
+       "cool": true
+      },
+      "timings_ms": {
+       "infer": 360.31,
+       "total": 360.58
+      },
+      "image_persisted": false
+     }
+    },
+    {
+     "t": 1793040414.512,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 943.1,
+     "usage": {
+      "inputTokens": 2176,
+      "outputTokens": 60,
+      "totalTokens": 2236
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040414.662,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "news.example.com",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "news.example.com",
+       "cleared": 2,
+       "escalation_rate_per_s": 3,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": false,
+       "updated": 1793040406
+      }
+     }
+    },
+    {
+     "t": 1793040415.979,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "tool_use",
+     "ms": 1317.5,
+     "usage": {
+      "inputTokens": 2321,
+      "outputTokens": 107,
+      "totalTokens": 2428
+     },
+     "text": "",
+     "tool_uses": [
+      "verdict_put"
+     ]
+    },
+    {
+     "t": 1793040416.163,
+     "step": "tool",
+     "tool": "verdict_put",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "dhash": "583a3a1e3a7adbb3",
+      "verdict": "CLEAR",
+      "source": "agent",
+      "score": 0.0
+     },
+     "result": {
+      "ok": true,
+      "dhash": "583a3a1e3a7adbb3",
+      "verdict": "CLEAR",
+      "app": "news.example.com"
+     }
+    },
+    {
+     "t": 1793040417.13,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 3,
+     "stop": "tool_use",
+     "ms": 966.6,
+     "usage": {
+      "inputTokens": 2492,
+      "outputTokens": 62,
+      "totalTokens": 2554
+     },
+     "text": "",
+     "tool_uses": [
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040417.278,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "stubborn_unsure",
+      "detail": "picture cleared after review"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:46:57#684708"
+     }
+    },
+    {
+     "t": 1793040418.642,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 4,
+     "stop": "end_turn",
+     "ms": 1364.2,
+     "usage": {
+      "inputTokens": 2606,
+      "outputTokens": 23,
+      "totalTokens": 2629
+     },
+     "text": "{\"verdict\": \"CLEAR\", \"policy\": null, \"note\": \"picture cleared after review\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "heavy_page AFTER reviews: photos.example.org",
+   "event": {
+    "type": "heavy_page",
+    "app": "photos.example.org",
+    "mode_floor": "aggressive",
+    "pictures_per_min": 90,
+    "escalations_per_min": 8,
+    "unsure_rate": 0.12,
+    "shed_rate": 0.25,
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "heavy_page",
+    "app": "photos.example.org",
+    "dhash": "",
+    "verdict": "NONE",
+    "policy": {
+     "min_mode": "aggressive",
+     "escalation_rate_per_s": 5.0,
+     "prefrost": true
+    },
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 3870.1,
+    "note": "Heavy page policy updated to prefrost true and escalation rate 5 per second",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040421.282,
+     "step": "event",
+     "event": {
+      "type": "heavy_page",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "photos.example.org",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "pictures_per_min": 90.0,
+      "escalations_per_min": 8.0,
+      "unsure_rate": 0.12,
+      "shed_rate": 0.25
+     }
+    },
+    {
+     "t": 1793040421.417,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040422.326,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 908.8,
+     "usage": {
+      "inputTokens": 1995,
+      "outputTokens": 60,
+      "totalTokens": 2055
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040422.461,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "photos.example.org",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "photos.example.org",
+       "cleared": 1,
+       "confirmed": 1,
+       "escalation_rate_per_s": 5,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": true,
+       "updated": 1793040385
+      }
+     }
+    },
+    {
+     "t": 1793040423.618,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 1157.3,
+     "usage": {
+      "inputTokens": 2146,
+      "outputTokens": 157,
+      "totalTokens": 2303
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_put",
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040423.761,
+     "step": "tool",
+     "tool": "policy_put",
+     "args": {
+      "app": "photos.example.org",
+      "min_mode": "aggressive",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "escalation_rate_per_s": 5.0,
+      "prefrost": true,
+      "note": ""
+     },
+     "result": {
+      "ok": true,
+      "app": "photos.example.org",
+      "min_mode": "aggressive",
+      "escalation_rate_per_s": 5.0,
+      "prefrost": true
+     }
+    },
+    {
+     "t": 1793040423.895,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "heavy_page",
+      "detail": "Heavy page policy updated"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:47:03#4bb0c1"
+     }
+    },
+    {
+     "t": 1793040425.152,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "end_turn",
+     "ms": 1257.0,
+     "usage": {
+      "inputTokens": 2406,
+      "outputTokens": 70,
+      "totalTokens": 2476
+     },
+     "text": "```json\n{\"verdict\": \"NONE\", \"policy\": {\"app\": \"photos.example.org\", \"min_mode\": \"aggressive\", \"escalation_rate_per_s\": 5, \"prefrost\": true}, \"note\": \"Heavy page policy updated to prefrost true and escalation rate 5 per second\"}\n```",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "heavy_page AFTER reviews: news.example.com",
+   "event": {
+    "type": "heavy_page",
+    "app": "news.example.com",
+    "mode_floor": "aggressive",
+    "pictures_per_min": 90,
+    "escalations_per_min": 8,
+    "unsure_rate": 0.12,
+    "shed_rate": 0.25,
+    "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+   },
+   "decision": {
+    "type": "heavy_page",
+    "app": "news.example.com",
+    "dhash": "",
+    "verdict": "NONE",
+    "policy": {
+     "min_mode": "aggressive",
+     "escalation_rate_per_s": 1.0,
+     "prefrost": false
+    },
+    "summary": null,
+    "brain": "bedrock",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 4291.4,
+    "note": "adjusted escalation rate for heavy page",
+    "guardrail_action": null
+   },
+   "agent_trace": [
+    {
+     "t": 1793040427.25,
+     "step": "event",
+     "event": {
+      "type": "heavy_page",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "news.example.com",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "pictures_per_min": 90.0,
+      "escalations_per_min": 8.0,
+      "unsure_rate": 0.12,
+      "shed_rate": 0.25
+     }
+    },
+    {
+     "t": 1793040427.378,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040428.596,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 0,
+     "stop": "tool_use",
+     "ms": 1218.0,
+     "usage": {
+      "inputTokens": 1995,
+      "outputTokens": 60,
+      "totalTokens": 2055
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_get"
+     ]
+    },
+    {
+     "t": 1793040428.765,
+     "step": "tool",
+     "tool": "policy_get",
+     "args": {
+      "app": "news.example.com",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b"
+     },
+     "result": {
+      "found": true,
+      "policy": {
+       "app": "news.example.com",
+       "cleared": 3,
+       "escalation_rate_per_s": 3,
+       "min_mode": "aggressive",
+       "note": "",
+       "prefrost": false,
+       "updated": 1793040416
+      }
+     }
+    },
+    {
+     "t": 1793040430.023,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 1,
+     "stop": "tool_use",
+     "ms": 1258.3,
+     "usage": {
+      "inputTokens": 2140,
+      "outputTokens": 159,
+      "totalTokens": 2299
+     },
+     "text": "",
+     "tool_uses": [
+      "policy_put",
+      "audit_append"
+     ]
+    },
+    {
+     "t": 1793040430.181,
+     "step": "tool",
+     "tool": "policy_put",
+     "args": {
+      "app": "news.example.com",
+      "min_mode": "aggressive",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "escalation_rate_per_s": 1.0,
+      "prefrost": false,
+      "note": ""
+     },
+     "result": {
+      "ok": true,
+      "app": "news.example.com",
+      "min_mode": "aggressive",
+      "escalation_rate_per_s": 1.0,
+      "prefrost": false
+     }
+    },
+    {
+     "t": 1793040430.27,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "heavy_page",
+      "detail": "adjusted escalation rate for heavy page"
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:47:10#6a8ef6"
+     }
+    },
+    {
+     "t": 1793040431.541,
+     "step": "model",
+     "model": "us.amazon.nova-2-lite-v1:0",
+     "turn": 2,
+     "stop": "end_turn",
+     "ms": 1271.1,
+     "usage": {
+      "inputTokens": 2402,
+      "outputTokens": 55,
+      "totalTokens": 2457
+     },
+     "text": "{\"verdict\": \"NONE\", \"policy\": {\"app\": \"news.example.com\", \"min_mode\": \"aggressive\", \"escalation_rate_per_s\": 1, \"prefrost\": false}, \"note\": \"adjusted escalation rate for heavy page\"}",
+     "tool_uses": []
+    }
+   ]
+  },
+  {
+   "step": "session_summary",
+   "decision": {
+    "type": "session_summary",
+    "app": null,
+    "dhash": null,
+    "verdict": null,
+    "policy": null,
+    "summary": "In the last 25 minutes, Screen Guardian kept 9 pictures hidden behind a cover, and briefly covered 40 more until they were checked. A deeper cloud check kept 1 of them hidden and found 4 fine to show. Nothing else needs your attention right now.",
+    "brain": "rules",
+    "model": "us.amazon.nova-2-lite-v1:0",
+    "lane": "agentcore",
+    "latency_ms": 1842.1,
+    "note": null,
+    "guardrail_action": "INTERVENED"
+   },
+   "agent_trace": [
+    {
+     "t": 1793040435.263,
+     "step": "event",
+     "event": {
+      "type": "session_summary",
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "app": "unknown.app",
+      "mode_floor": "aggressive",
+      "mode": "aggressive",
+      "counts": {
+       "UNSURE_PICTURE": 7,
+       "PENDING_PREFROST": 40,
+       "UNSAFE_PICTURE": 2,
+       "AGENT_CONFIRM": 1,
+       "AGENT_CLEAR": 4
+      },
+      "minutes": 25.0
+     }
+    },
+    {
+     "t": 1793040435.36,
+     "step": "model_failed",
+     "model": "us.anthropic.claude-sonnet-4-6",
+     "error": "An error occurred (ResourceNotFoundException) when calling the Converse operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before "
+    },
+    {
+     "t": 1793040437.007,
+     "step": "guardrail_blocked_summary",
+     "model": "us.amazon.nova-2-lite-v1:0"
+    },
+    {
+     "t": 1793040437.105,
+     "step": "tool",
+     "tool": "audit_append",
+     "args": {
+      "device_id": "3521fe20-bb9b-43b3-99f2-d51fa4c3229b",
+      "kind": "session_summary",
+      "detail": "In the last 25 minutes, Screen Guardian kept 9 pictures hidden behind a cover, and briefly covered 40 more until they were checked. A deeper cloud check kept 1 of them hidden and found 4 fine to show. Nothing else needs your attention right now."
+     },
+     "result": {
+      "ok": true,
+      "sk": "AUDIT#2026-10-26T18:47:17#652735"
+     }
+    }
+   ]
+  }
+ ]
+}

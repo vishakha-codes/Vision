@@ -1,0 +1,318 @@
+{
+  "variant": "cool_static_b4",
+  "instance_id": "<box-instance-id>",
+  "instance_type": "c8g.large (2 vCPU Graviton4, 4 GiB)",
+  "opencv": {
+    "version": "4.14.0-pre",
+    "cool": true,
+    "module": "/opt/cool/python_3.12/site-packages/cv2/python-3.12/cv2.cpython-312-aarch64-linux-gnu.so",
+    "custom_hal": "YES (carotene (ver 0.0.1) KleidiCV (ver 0.7.0))",
+    "cpu_baseline": "SVE NEON FP16 NEON_DOTPROD NEON_FP16 NEON_BF16",
+    "parallel": "TBB (ver 2022.1 interface 12150)",
+    "lapack": "armpl",
+    "threads": 2
+  },
+  "detector": {
+    "class": "StaticBatchDetector",
+    "model": "320n_static_b4.onnx",
+    "backend": "cv2",
+    "input": 320,
+    "static_batch": 4
+  },
+  "workload": {
+    "pictures": 150,
+    "views_total": 750,
+    "views_per_picture": 5.0,
+    "profile": "l2",
+    "seed": 7,
+    "source": "vision_core.live.synth.photo_texture (benign)"
+  },
+  "wall_s": 22.961,
+  "crops_per_s": 32.66,
+  "pictures_per_s": 6.53,
+  "picture_latency_ms": {
+    "p50": 182.09,
+    "p95": 188.83,
+    "mean": 153.06
+  },
+  "stages_ms": {
+    "decode_ms": {
+      "mean": 0.967,
+      "p50": 0.533,
+      "p95": 3.244
+    },
+    "hash_ms": {
+      "mean": 0.467,
+      "p50": 0.326,
+      "p95": 1.292
+    },
+    "prep_ms": {
+      "mean": 2.246,
+      "p50": 1.943,
+      "p95": 5.969
+    },
+    "forward_ms": {
+      "mean": 148.931,
+      "p50": 177.963,
+      "p95": 180.355
+    },
+    "post_ms": {
+      "mean": 0.449,
+      "p50": 0.462,
+      "p95": 0.696
+    },
+    "total_ms": {
+      "mean": 153.06,
+      "p50": 182.09,
+      "p95": 188.835
+    }
+  },
+  "cpu": {
+    "process_cpu_s": 45.61,
+    "cpu_util_of_2_vcpu": 0.993
+  },
+  "cost": {
+    "usd_per_hour": 0.07976,
+    "usd_per_1k_crops": 0.000678,
+    "usd_per_1k_pictures": 0.003391,
+    "note": "instance-hour cost at 100% busy; excludes EBS/data transfer"
+  },
+  "top_dets": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1254
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1324
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1324
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1231
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1231
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.507
+      ]
+    ],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1249
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.1473
+      ],
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.1473
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.2311
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_BREAST_COVERED",
+        0.1428
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1724
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1724
+      ]
+    ],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1274
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1224
+      ]
+    ],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_COVERED",
+        0.1207
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.2676
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "raw_outputs": "experiments/cool_live/raw_cool_static_b4.npz",
+  "threads": 2,
+  "env": {
+    "LD_LIBRARY_PATH": "/opt/cool/cpp_sdk/lib"
+  },
+  "time_utc": "2026-10-26T18:32:04Z"
+}

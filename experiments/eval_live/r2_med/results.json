@@ -1,0 +1,5520 @@
+{
+  "meta": {
+    "mode": "medium",
+    "semantics": "medium",
+    "levels": [
+      "analyzer"
+    ],
+    "resolutions": [
+      "half",
+      "retina"
+    ],
+    "sequences": [
+      "news_smooth",
+      "search_jumpy",
+      "shop_momentum",
+      "social_momentum",
+      "search_smooth",
+      "nav_search_to_news",
+      "nav_social_to_shop",
+      "subpane_grid",
+      "video_play"
+    ],
+    "frames_per_sequence": 36,
+    "seed": 0,
+    "analyzers": [
+      "auto",
+      "gt"
+    ],
+    "latencies": [
+      0,
+      2,
+      5
+    ],
+    "analyze_every": 1,
+    "opencv": "5.0.0",
+    "wall_s": 31.3,
+    "measures": "proposals + masking + engine with a GT oracle detector on benign synthetic pages",
+    "does_not_measure": "NSFW model accuracy (no objectionable data exists in this corpus)"
+  },
+  "skipped": [],
+  "errors": [],
+  "runs": [
+    {
+      "level": "analyzer",
+      "variant": "analyzer[auto]",
+      "res": "half",
+      "size": [
+        1728,
+        1117
+      ],
+      "impl": "real+oracle_detector(detector)",
+      "note": "OracleDetector injected via make_analyzer(detector=...)",
+      "overall": {
+        "frames": 324,
+        "frames_with_flagged": 321,
+        "exposure": {
+          "semantics": "medium",
+          "frames": 14,
+          "rate": 0.0436,
+          "during_scroll": {
+            "frames": 12,
+            "of": 207,
+            "rate": 0.058
+          },
+          "after_navigation": {
+            "frames": 1,
+            "of": 24,
+            "rate": 0.0417
+          },
+          "static": {
+            "frames": 2,
+            "of": 99,
+            "rate": 0.0202
+          },
+          "picture_target_frames": 321,
+          "part_target_frames": 14
+        },
+        "coverage": {
+          "picture_mean": 0.2932,
+          "picture_min": 0.0,
+          "parts_mean": 0.9948
+        },
+        "over_mask": {
+          "aggressive": {
+            "frac_mean": 0.00113,
+            "px_mean": 1678.6,
+            "frames_any": 113,
+            "on_pictures_px_mean": 1583.7,
+            "on_text_ui_px_mean": 94.9
+          },
+          "medium": {
+            "frac_mean": 0.03528,
+            "px_mean": 64785.0,
+            "frames_any": 281,
+            "on_pictures_px_mean": 1583.7,
+            "on_text_ui_px_mean": 94.9,
+            "on_flagged_non_part_px_mean": 63137.0
+          }
+        },
+        "scroll_follow_lag_frames": {
+          "semantics": "medium",
+          "events": 0,
+          "unresolved": 0,
+          "lag0_rate": null
+        },
+        "time_to_cover_frames": {
+          "appearances": 77,
+          "never_covered": 1,
+          "covered_on_arrival_rate": 0.8442,
+          "mean": 0.184,
+          "p50": 0.0,
+          "p95": 1.0,
+          "max": 3.0
+        },
+        "proposals": {
+          "iou0.5": {
+            "recall": 1.0,
+            "recall_flagged": 1.0,
+            "precision": 0.9606,
+            "n_gt": 4458,
+            "n_prop": 5305
+          },
+          "iou0.7": {
+            "recall": 0.998,
+            "recall_flagged": 1.0,
+            "precision": 0.9557,
+            "n_gt": 4458,
+            "n_prop": 5305
+          }
+        }
+      },
+      "per_layout": {
+        "image_search": {
+          "frames": 90,
+          "frames_with_flagged": 90,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 8,
+            "rate": 0.0889,
+            "during_scroll": {
+              "frames": 6,
+              "of": 60,
+              "rate": 0.1
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 2,
+              "of": 30,
+              "rate": 0.0667
+            },
+            "picture_target_frames": 90,
+            "part_target_frames": 8
+          },
+          "coverage": {
+            "picture_mean": 0.308,
+            "picture_min": 0.1753,
+            "parts_mean": 0.9956
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00266,
+              "px_mean": 4014.1,
+              "frames_any": 51,
+              "on_pictures_px_mean": 3830.8,
+              "on_text_ui_px_mean": 183.3
+            },
+            "medium": {
+              "frac_mean": 0.02932,
+              "px_mean": 53911.9,
+              "frames_any": 90,
+              "on_pictures_px_mean": 3830.8,
+              "on_text_ui_px_mean": 183.3,
+              "on_flagged_non_part_px_mean": 49926.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 51,
+            "never_covered": 1,
+            "covered_on_arrival_rate": 0.8431,
+            "mean": 0.16,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 2.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9955,
+              "n_gt": 2896,
+              "n_prop": 3312
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9909,
+              "n_gt": 2896,
+              "n_prop": 3312
+            }
+          }
+        },
+        "news": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 1,
+            "rate": 0.0185,
+            "during_scroll": {
+              "frames": 1,
+              "of": 32,
+              "rate": 0.0312
+            },
+            "after_navigation": {
+              "frames": 1,
+              "of": 12,
+              "rate": 0.0833
+            },
+            "static": {
+              "frames": 0,
+              "of": 14,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 1
+          },
+          "coverage": {
+            "picture_mean": 0.4779,
+            "picture_min": 0.128,
+            "parts_mean": 0.9852
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00119,
+              "px_mean": 1533.5,
+              "frames_any": 29,
+              "on_pictures_px_mean": 1424.4,
+              "on_text_ui_px_mean": 109.0
+            },
+            "medium": {
+              "frac_mean": 0.12114,
+              "px_mean": 220511.5,
+              "frames_any": 54,
+              "on_pictures_px_mean": 1424.4,
+              "on_text_ui_px_mean": 109.0,
+              "on_flagged_non_part_px_mean": 219037.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.8333,
+            "mean": 0.167,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 245
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 245
+            }
+          }
+        },
+        "shopping": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 39,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.2809,
+            "picture_min": 0.0535,
+            "parts_mean": 0.9994
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00012,
+              "px_mean": 211.5,
+              "frames_any": 2,
+              "on_pictures_px_mean": 210.0,
+              "on_text_ui_px_mean": 1.5
+            },
+            "medium": {
+              "frac_mean": 0.01402,
+              "px_mean": 26389.7,
+              "frames_any": 39,
+              "on_pictures_px_mean": 210.0,
+              "on_text_ui_px_mean": 1.5,
+              "on_flagged_non_part_px_mean": 26179.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.7521,
+              "n_gt": 404,
+              "n_prop": 609
+            },
+            "iou0.7": {
+              "recall": 0.9827,
+              "recall_flagged": 1.0,
+              "precision": 0.7406,
+              "n_gt": 404,
+              "n_prop": 609
+            }
+          }
+        },
+        "social": {
+          "frames": 54,
+          "frames_with_flagged": 51,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 4,
+            "rate": 0.0784,
+            "during_scroll": {
+              "frames": 4,
+              "of": 44,
+              "rate": 0.0909
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 51,
+            "part_target_frames": 4
+          },
+          "coverage": {
+            "picture_mean": 0.2979,
+            "picture_min": 0.0,
+            "parts_mean": 0.9926
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00051,
+              "px_mean": 829.4,
+              "frames_any": 19,
+              "on_pictures_px_mean": 716.0,
+              "on_text_ui_px_mean": 113.3
+            },
+            "medium": {
+              "frac_mean": 0.02134,
+              "px_mean": 40034.2,
+              "frames_any": 50,
+              "on_pictures_px_mean": 716.0,
+              "on_text_ui_px_mean": 113.3,
+              "on_flagged_non_part_px_mean": 39262.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.5,
+            "mean": 1.0,
+            "p50": 1.0,
+            "p95": 3.0,
+            "max": 3.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.7635,
+              "n_gt": 97,
+              "n_prop": 148
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.7568,
+              "n_gt": 97,
+              "n_prop": 148
+            }
+          }
+        },
+        "subpane": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 1,
+            "rate": 0.0278,
+            "during_scroll": {
+              "frames": 1,
+              "of": 28,
+              "rate": 0.0357
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 1
+          },
+          "coverage": {
+            "picture_mean": 0.1633,
+            "picture_min": 0.1079,
+            "parts_mean": 0.9981
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0006,
+              "px_mean": 996.0,
+              "frames_any": 10,
+              "on_pictures_px_mean": 936.3,
+              "on_text_ui_px_mean": 59.7
+            },
+            "medium": {
+              "frac_mean": 0.00723,
+              "px_mean": 13635.7,
+              "frames_any": 36,
+              "on_pictures_px_mean": 936.3,
+              "on_text_ui_px_mean": 59.7,
+              "on_flagged_non_part_px_mean": 12665.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.875,
+            "mean": 0.125,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9873,
+              "n_gt": 508,
+              "n_prop": 629
+            },
+            "iou0.7": {
+              "recall": 0.9961,
+              "recall_flagged": 1.0,
+              "precision": 0.9825,
+              "n_gt": 508,
+              "n_prop": 629
+            }
+          }
+        },
+        "video": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1211,
+            "picture_min": 0.0943,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00017,
+              "px_mean": 214.7,
+              "frames_any": 2,
+              "on_pictures_px_mean": 214.7,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00227,
+              "px_mean": 4246.7,
+              "frames_any": 12,
+              "on_pictures_px_mean": 214.7,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 4032.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "per_sequence": {
+        "news_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 25,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 11,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.431,
+            "picture_min": 0.128,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0012,
+              "px_mean": 1186.9,
+              "frames_any": 18,
+              "on_pictures_px_mean": 1023.3,
+              "on_text_ui_px_mean": 163.6
+            },
+            "medium": {
+              "frac_mean": 0.17254,
+              "px_mean": 313298.0,
+              "frames_any": 36,
+              "on_pictures_px_mean": 1023.3,
+              "on_text_ui_px_mean": 163.6,
+              "on_flagged_non_part_px_mean": 312200.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 177
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 177
+            }
+          }
+        },
+        "search_jumpy": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 2,
+            "rate": 0.0556,
+            "during_scroll": {
+              "frames": 1,
+              "of": 20,
+              "rate": 0.05
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 1,
+              "of": 16,
+              "rate": 0.0625
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 2
+          },
+          "coverage": {
+            "picture_mean": 0.3478,
+            "picture_min": 0.219,
+            "parts_mean": 0.9983
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00325,
+              "px_mean": 4904.1,
+              "frames_any": 25,
+              "on_pictures_px_mean": 4617.8,
+              "on_text_ui_px_mean": 286.3
+            },
+            "medium": {
+              "frac_mean": 0.0345,
+              "px_mean": 63113.2,
+              "frames_any": 36,
+              "on_pictures_px_mean": 4617.8,
+              "on_text_ui_px_mean": 286.3,
+              "on_flagged_non_part_px_mean": 58237.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 24,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.9583,
+            "mean": 0.083,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 2.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9939,
+              "n_gt": 1119,
+              "n_prop": 1305
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9893,
+              "n_gt": 1119,
+              "n_prop": 1305
+            }
+          }
+        },
+        "shop_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 31,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.3236,
+            "picture_min": 0.0535,
+            "parts_mean": 0.9992
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00018,
+              "px_mean": 317.3,
+              "frames_any": 2,
+              "on_pictures_px_mean": 315.0,
+              "on_text_ui_px_mean": 2.3
+            },
+            "medium": {
+              "frac_mean": 0.02097,
+              "px_mean": 39484.6,
+              "frames_any": 21,
+              "on_pictures_px_mean": 315.0,
+              "on_text_ui_px_mean": 2.3,
+              "on_flagged_non_part_px_mean": 39169.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 5,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.6753,
+              "n_gt": 260,
+              "n_prop": 465
+            },
+            "iou0.7": {
+              "recall": 0.9731,
+              "recall_flagged": 1.0,
+              "precision": 0.6602,
+              "n_gt": 260,
+              "n_prop": 465
+            }
+          }
+        },
+        "social_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 33,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 1,
+            "rate": 0.0303,
+            "during_scroll": {
+              "frames": 1,
+              "of": 30,
+              "rate": 0.0333
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 6,
+              "rate": 0.0
+            },
+            "picture_target_frames": 33,
+            "part_target_frames": 1
+          },
+          "coverage": {
+            "picture_mean": 0.1531,
+            "picture_min": 0.0,
+            "parts_mean": 0.9976
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00023,
+              "px_mean": 388.5,
+              "frames_any": 17,
+              "on_pictures_px_mean": 280.8,
+              "on_text_ui_px_mean": 107.7
+            },
+            "medium": {
+              "frac_mean": 0.00911,
+              "px_mean": 17109.1,
+              "frames_any": 32,
+              "on_pictures_px_mean": 280.8,
+              "on_text_ui_px_mean": 107.7,
+              "on_flagged_non_part_px_mean": 16807.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.5,
+            "mean": 0.5,
+            "p50": 1.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.8471,
+              "n_gt": 62,
+              "n_prop": 85
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.8353,
+              "n_gt": 62,
+              "n_prop": 85
+            }
+          }
+        },
+        "search_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 5,
+            "rate": 0.1389,
+            "during_scroll": {
+              "frames": 4,
+              "of": 26,
+              "rate": 0.1538
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 1,
+              "of": 10,
+              "rate": 0.1
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 5
+          },
+          "coverage": {
+            "picture_mean": 0.2791,
+            "picture_min": 0.1753,
+            "parts_mean": 0.9917
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00279,
+              "px_mean": 4155.1,
+              "frames_any": 18,
+              "on_pictures_px_mean": 4021.8,
+              "on_text_ui_px_mean": 133.3
+            },
+            "medium": {
+              "frac_mean": 0.02577,
+              "px_mean": 47490.8,
+              "frames_any": 36,
+              "on_pictures_px_mean": 4021.8,
+              "on_text_ui_px_mean": 133.3,
+              "on_flagged_non_part_px_mean": 43362.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 15,
+            "never_covered": 1,
+            "covered_on_arrival_rate": 0.6,
+            "mean": 0.357,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.997,
+              "n_gt": 1185,
+              "n_prop": 1333
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9917,
+              "n_gt": 1185,
+              "n_prop": 1333
+            }
+          }
+        },
+        "nav_search_to_news": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 2,
+            "rate": 0.0556,
+            "during_scroll": {
+              "frames": 2,
+              "of": 21,
+              "rate": 0.0952
+            },
+            "after_navigation": {
+              "frames": 1,
+              "of": 12,
+              "rate": 0.0833
+            },
+            "static": {
+              "frames": 0,
+              "of": 7,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 2
+          },
+          "coverage": {
+            "picture_mean": 0.4291,
+            "picture_min": 0.1753,
+            "parts_mean": 0.9768
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00121,
+              "px_mean": 2089.6,
+              "frames_any": 19,
+              "on_pictures_px_mean": 2050.8,
+              "on_text_ui_px_mean": 38.8
+            },
+            "medium": {
+              "frac_mean": 0.02221,
+              "px_mean": 41644.9,
+              "frames_any": 36,
+              "on_pictures_px_mean": 2050.8,
+              "on_text_ui_px_mean": 38.8,
+              "on_flagged_non_part_px_mean": 39571.3
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 14,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.8571,
+            "mean": 0.143,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.996,
+              "n_gt": 640,
+              "n_prop": 742
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9933,
+              "n_gt": 640,
+              "n_prop": 742
+            }
+          }
+        },
+        "nav_social_to_shop": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 3,
+            "rate": 0.0833,
+            "during_scroll": {
+              "frames": 3,
+              "of": 22,
+              "rate": 0.1364
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 3
+          },
+          "coverage": {
+            "picture_mean": 0.3793,
+            "picture_min": 0.1953,
+            "parts_mean": 0.9918
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00053,
+              "px_mean": 855.6,
+              "frames_any": 2,
+              "on_pictures_px_mean": 793.2,
+              "on_text_ui_px_mean": 62.3
+            },
+            "medium": {
+              "frac_mean": 0.02295,
+              "px_mean": 43042.2,
+              "frames_any": 36,
+              "on_pictures_px_mean": 793.2,
+              "on_text_ui_px_mean": 62.3,
+              "on_flagged_non_part_px_mean": 42186.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 3,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.6667,
+            "mean": 1.0,
+            "p50": 0.0,
+            "p95": 3.0,
+            "max": 3.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.8937,
+              "n_gt": 179,
+              "n_prop": 207
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.8937,
+              "n_gt": 179,
+              "n_prop": 207
+            }
+          }
+        },
+        "subpane_grid": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 1,
+            "rate": 0.0278,
+            "during_scroll": {
+              "frames": 1,
+              "of": 28,
+              "rate": 0.0357
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 1
+          },
+          "coverage": {
+            "picture_mean": 0.1633,
+            "picture_min": 0.1079,
+            "parts_mean": 0.9981
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0006,
+              "px_mean": 996.0,
+              "frames_any": 10,
+              "on_pictures_px_mean": 936.3,
+              "on_text_ui_px_mean": 59.7
+            },
+            "medium": {
+              "frac_mean": 0.00723,
+              "px_mean": 13635.7,
+              "frames_any": 36,
+              "on_pictures_px_mean": 936.3,
+              "on_text_ui_px_mean": 59.7,
+              "on_flagged_non_part_px_mean": 12665.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.875,
+            "mean": 0.125,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9873,
+              "n_gt": 508,
+              "n_prop": 629
+            },
+            "iou0.7": {
+              "recall": 0.9961,
+              "recall_flagged": 1.0,
+              "precision": 0.9825,
+              "n_gt": 508,
+              "n_prop": 629
+            }
+          }
+        },
+        "video_play": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1211,
+            "picture_min": 0.0943,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00017,
+              "px_mean": 214.7,
+              "frames_any": 2,
+              "on_pictures_px_mean": 214.7,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00227,
+              "px_mean": 4246.7,
+              "frames_any": 12,
+              "on_pictures_px_mean": 214.7,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 4032.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "timings_ms": {
+        "analyze_wall_ms": {
+          "n": 324,
+          "mean": 20.47,
+          "p50": 18.7,
+          "p95": 31.44,
+          "max": 35.2
+        },
+        "analyzer.propose": {
+          "n": 324,
+          "mean": 19.87,
+          "p50": 18.2,
+          "p95": 30.25,
+          "max": 32.56
+        },
+        "analyzer.propose.scale": {
+          "n": 324,
+          "mean": 0.13,
+          "p50": 0.13,
+          "p95": 0.17,
+          "max": 0.35
+        },
+        "analyzer.propose.masks": {
+          "n": 324,
+          "mean": 3.8,
+          "p50": 3.76,
+          "p95": 4.68,
+          "max": 7.01
+        },
+        "analyzer.propose.leaves": {
+          "n": 324,
+          "mean": 8.87,
+          "p50": 8.17,
+          "p95": 14.63,
+          "max": 16.03
+        },
+        "analyzer.propose.regions": {
+          "n": 324,
+          "mean": 5.02,
+          "p50": 4.29,
+          "p95": 11.25,
+          "max": 12.32
+        },
+        "analyzer.propose.tiles": {
+          "n": 324,
+          "mean": 1.45,
+          "p50": 1.36,
+          "p95": 2.04,
+          "max": 3.22
+        },
+        "analyzer.cache": {
+          "n": 324,
+          "mean": 0.32,
+          "p50": 0.32,
+          "p95": 0.68,
+          "max": 4.14
+        },
+        "analyzer.classify": {
+          "n": 324,
+          "mean": 0.05,
+          "p50": 0.03,
+          "p95": 0.19,
+          "max": 0.48
+        },
+        "analyzer.second_look": {
+          "n": 324,
+          "mean": 0.03,
+          "p50": 0.02,
+          "p95": 0.06,
+          "max": 0.45
+        },
+        "analyzer.decide": {
+          "n": 324,
+          "mean": 0.19,
+          "p50": 0.15,
+          "p95": 0.43,
+          "max": 3.16
+        },
+        "analyzer.total": {
+          "n": 324,
+          "mean": 20.47,
+          "p50": 18.7,
+          "p95": 31.44,
+          "max": 35.19
+        }
+      },
+      "oracle_locate": {
+        "located_view": 903,
+        "located_full": 0,
+        "located_match": 0,
+        "unlocated": 0
+      },
+      "wall_s": 8.33
+    },
+    {
+      "level": "analyzer",
+      "variant": "analyzer[gt]",
+      "res": "half",
+      "size": [
+        1728,
+        1117
+      ],
+      "impl": "gt_proposals+oracle",
+      "note": "perfect proposals (GT rects) + oracle verdicts",
+      "overall": {
+        "frames": 324,
+        "frames_with_flagged": 321,
+        "exposure": {
+          "semantics": "medium",
+          "frames": 0,
+          "rate": 0.0,
+          "during_scroll": {
+            "frames": 0,
+            "of": 207,
+            "rate": 0.0
+          },
+          "after_navigation": {
+            "frames": 0,
+            "of": 24,
+            "rate": 0.0
+          },
+          "static": {
+            "frames": 0,
+            "of": 99,
+            "rate": 0.0
+          },
+          "picture_target_frames": 320,
+          "part_target_frames": 0
+        },
+        "coverage": {
+          "picture_mean": 0.1691,
+          "picture_min": 0.0071,
+          "parts_mean": 1.0
+        },
+        "over_mask": {
+          "aggressive": {
+            "frac_mean": 0.0,
+            "px_mean": 0.0,
+            "frames_any": 0,
+            "on_pictures_px_mean": 0.0,
+            "on_text_ui_px_mean": 0.0
+          },
+          "medium": {
+            "frac_mean": 0.00941,
+            "px_mean": 17706.8,
+            "frames_any": 99,
+            "on_pictures_px_mean": 0.0,
+            "on_text_ui_px_mean": 0.0,
+            "on_flagged_non_part_px_mean": 17706.8
+          }
+        },
+        "scroll_follow_lag_frames": {
+          "semantics": "medium",
+          "events": 1500,
+          "unresolved": 0,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "lag0_rate": 1.0
+        },
+        "time_to_cover_frames": {
+          "appearances": 77,
+          "never_covered": 0,
+          "covered_on_arrival_rate": 1.0,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "proposals": {
+          "iou0.5": {
+            "recall": 1.0,
+            "recall_flagged": 1.0,
+            "precision": 1.0,
+            "n_gt": 4458,
+            "n_prop": 5200
+          },
+          "iou0.7": {
+            "recall": 1.0,
+            "recall_flagged": 1.0,
+            "precision": 1.0,
+            "n_gt": 4458,
+            "n_prop": 5200
+          }
+        }
+      },
+      "per_layout": {
+        "image_search": {
+          "frames": 90,
+          "frames_with_flagged": 90,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 60,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 30,
+              "rate": 0.0
+            },
+            "picture_target_frames": 90,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1183,
+            "picture_min": 0.0775,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00343,
+              "px_mean": 6270.2,
+              "frames_any": 39,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 6270.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 942,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 51,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 2896,
+              "n_prop": 3327
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 2896,
+              "n_prop": 3327
+            }
+          }
+        },
+        "news": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 14,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1755,
+            "picture_min": 0.0795,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00156,
+              "px_mean": 2925.6,
+              "frames_any": 14,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 2925.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 65,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 260
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 260
+            }
+          }
+        },
+        "shopping": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 39,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1185,
+            "picture_min": 0.0341,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00088,
+              "px_mean": 1680.0,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 1680.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 150,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 404,
+              "n_prop": 504
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 404,
+              "n_prop": 504
+            }
+          }
+        },
+        "social": {
+          "frames": 54,
+          "frames_with_flagged": 51,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 44,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 50,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1136,
+            "picture_min": 0.0071,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00126,
+              "px_mean": 2424.1,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 2424.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 84,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 97,
+              "n_prop": 123
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 97,
+              "n_prop": 123
+            }
+          }
+        },
+        "subpane": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 28,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.5361,
+            "picture_min": 0.4739,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.07059,
+              "px_mean": 133141.4,
+              "frames_any": 36,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 133141.4
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 255,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 508,
+              "n_prop": 624
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 508,
+              "n_prop": 624
+            }
+          }
+        },
+        "video": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0739,
+            "picture_min": 0.0605,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 0.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 4,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "per_sequence": {
+        "news_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 25,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 11,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0881,
+            "picture_min": 0.0795,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00103,
+              "px_mean": 1880.0,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 1880.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 61,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 181
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 181
+            }
+          }
+        },
+        "search_jumpy": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 20,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 16,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1348,
+            "picture_min": 0.0798,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00401,
+              "px_mean": 7300.2,
+              "frames_any": 18,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 7300.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 325,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 24,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1119,
+              "n_prop": 1305
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1119,
+              "n_prop": 1305
+            }
+          }
+        },
+        "shop_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 31,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1155,
+            "picture_min": 0.0341,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00132,
+              "px_mean": 2520.0,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 2520.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 134,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 5,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 260,
+              "n_prop": 360
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 260,
+              "n_prop": 360
+            }
+          }
+        },
+        "social_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 33,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 30,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 6,
+              "rate": 0.0
+            },
+            "picture_target_frames": 32,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0887,
+            "picture_min": 0.0071,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00155,
+              "px_mean": 2979.2,
+              "frames_any": 2,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 2979.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 34,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 62,
+              "n_prop": 74
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 62,
+              "n_prop": 74
+            }
+          }
+        },
+        "search_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 26,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1097,
+            "picture_min": 0.0775,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00324,
+              "px_mean": 5936.4,
+              "frames_any": 15,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 5936.4
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 417,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 15,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1185,
+              "n_prop": 1350
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1185,
+              "n_prop": 1350
+            }
+          }
+        },
+        "nav_search_to_news": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 21,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 7,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.2264,
+            "picture_min": 0.0775,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00263,
+              "px_mean": 4947.1,
+              "frames_any": 15,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 4947.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 204,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 14,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 640,
+              "n_prop": 751
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 640,
+              "n_prop": 751
+            }
+          }
+        },
+        "nav_social_to_shop": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 22,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.142,
+            "picture_min": 0.1127,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00035,
+              "px_mean": 656.9,
+              "frames_any": 3,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 656.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 66,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 3,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 179,
+              "n_prop": 193
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 179,
+              "n_prop": 193
+            }
+          }
+        },
+        "subpane_grid": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 28,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.5361,
+            "picture_min": 0.4739,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.07059,
+              "px_mean": 133141.4,
+              "frames_any": 36,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 133141.4
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 255,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 508,
+              "n_prop": 624
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 508,
+              "n_prop": 624
+            }
+          }
+        },
+        "video_play": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0739,
+            "picture_min": 0.0605,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 0.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 4,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "timings_ms": {
+        "analyze_wall_ms": {
+          "n": 324,
+          "mean": 0.06,
+          "p50": 0.03,
+          "p95": 0.19,
+          "max": 0.26
+        },
+        "analyzer.total": {
+          "n": 324,
+          "mean": 0.06,
+          "p50": 0.03,
+          "p95": 0.19,
+          "max": 0.26
+        }
+      },
+      "oracle_locate": {
+        "located_view": 324,
+        "located_full": 0,
+        "located_match": 0,
+        "unlocated": 0
+      },
+      "wall_s": 1.58
+    },
+    {
+      "level": "analyzer",
+      "variant": "analyzer[auto]",
+      "res": "retina",
+      "size": [
+        3456,
+        2234
+      ],
+      "impl": "real+oracle_detector(detector)",
+      "note": "OracleDetector injected via make_analyzer(detector=...)",
+      "overall": {
+        "frames": 324,
+        "frames_with_flagged": 321,
+        "exposure": {
+          "semantics": "medium",
+          "frames": 13,
+          "rate": 0.0405,
+          "during_scroll": {
+            "frames": 9,
+            "of": 207,
+            "rate": 0.0435
+          },
+          "after_navigation": {
+            "frames": 0,
+            "of": 24,
+            "rate": 0.0
+          },
+          "static": {
+            "frames": 4,
+            "of": 99,
+            "rate": 0.0404
+          },
+          "picture_target_frames": 321,
+          "part_target_frames": 13
+        },
+        "coverage": {
+          "picture_mean": 0.3238,
+          "picture_min": 0.0,
+          "parts_mean": 0.9976
+        },
+        "over_mask": {
+          "aggressive": {
+            "frac_mean": 0.00095,
+            "px_mean": 5658.8,
+            "frames_any": 110,
+            "on_pictures_px_mean": 5143.9,
+            "on_text_ui_px_mean": 515.0
+          },
+          "medium": {
+            "frac_mean": 0.03358,
+            "px_mean": 247292.3,
+            "frames_any": 263,
+            "on_pictures_px_mean": 5143.9,
+            "on_text_ui_px_mean": 515.0,
+            "on_flagged_non_part_px_mean": 241876.1
+          }
+        },
+        "scroll_follow_lag_frames": {
+          "semantics": "medium",
+          "events": 0,
+          "unresolved": 0,
+          "lag0_rate": null
+        },
+        "time_to_cover_frames": {
+          "appearances": 78,
+          "never_covered": 1,
+          "covered_on_arrival_rate": 0.9359,
+          "mean": 0.065,
+          "p50": 0.0,
+          "p95": 1.0,
+          "max": 2.0
+        },
+        "proposals": {
+          "iou0.5": {
+            "recall": 0.9958,
+            "recall_flagged": 0.9889,
+            "precision": 0.9425,
+            "n_gt": 4542,
+            "n_prop": 5481
+          },
+          "iou0.7": {
+            "recall": 0.9888,
+            "recall_flagged": 0.9769,
+            "precision": 0.9352,
+            "n_gt": 4542,
+            "n_prop": 5481
+          }
+        }
+      },
+      "per_layout": {
+        "image_search": {
+          "frames": 90,
+          "frames_with_flagged": 90,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 6,
+            "rate": 0.0667,
+            "during_scroll": {
+              "frames": 2,
+              "of": 60,
+              "rate": 0.0333
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 4,
+              "of": 30,
+              "rate": 0.1333
+            },
+            "picture_target_frames": 90,
+            "part_target_frames": 6
+          },
+          "coverage": {
+            "picture_mean": 0.3245,
+            "picture_min": 0.227,
+            "parts_mean": 0.9995
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00192,
+              "px_mean": 11706.3,
+              "frames_any": 48,
+              "on_pictures_px_mean": 11162.9,
+              "on_text_ui_px_mean": 543.4
+            },
+            "medium": {
+              "frac_mean": 0.02631,
+              "px_mean": 192703.4,
+              "frames_any": 90,
+              "on_pictures_px_mean": 11162.9,
+              "on_text_ui_px_mean": 543.4,
+              "on_flagged_non_part_px_mean": 181262.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 52,
+            "never_covered": 1,
+            "covered_on_arrival_rate": 0.9808,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 0.9976,
+              "recall_flagged": 0.9974,
+              "precision": 0.9812,
+              "n_gt": 2939,
+              "n_prop": 3396
+            },
+            "iou0.7": {
+              "recall": 0.9901,
+              "recall_flagged": 0.979,
+              "precision": 0.9735,
+              "n_gt": 2939,
+              "n_prop": 3396
+            }
+          }
+        },
+        "news": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 14,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.5218,
+            "picture_min": 0.127,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00136,
+              "px_mean": 6977.5,
+              "frames_any": 31,
+              "on_pictures_px_mean": 6106.7,
+              "on_text_ui_px_mean": 870.8
+            },
+            "medium": {
+              "frac_mean": 0.10464,
+              "px_mean": 762650.7,
+              "frames_any": 54,
+              "on_pictures_px_mean": 6106.7,
+              "on_text_ui_px_mean": 870.8,
+              "on_flagged_non_part_px_mean": 756151.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 256
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 256
+            }
+          }
+        },
+        "shopping": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 39,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.2804,
+            "picture_min": 0.055,
+            "parts_mean": 0.997
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00011,
+              "px_mean": 822.8,
+              "frames_any": 2,
+              "on_pictures_px_mean": 816.7,
+              "on_text_ui_px_mean": 6.1
+            },
+            "medium": {
+              "frac_mean": 0.01382,
+              "px_mean": 103990.4,
+              "frames_any": 21,
+              "on_pictures_px_mean": 816.7,
+              "on_text_ui_px_mean": 6.1,
+              "on_flagged_non_part_px_mean": 103173.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.7395,
+              "n_gt": 404,
+              "n_prop": 622
+            },
+            "iou0.7": {
+              "recall": 0.9777,
+              "recall_flagged": 1.0,
+              "precision": 0.7203,
+              "n_gt": 404,
+              "n_prop": 622
+            }
+          }
+        },
+        "social": {
+          "frames": 54,
+          "frames_with_flagged": 51,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 5,
+            "rate": 0.098,
+            "during_scroll": {
+              "frames": 5,
+              "of": 44,
+              "rate": 0.1136
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 51,
+            "part_target_frames": 5
+          },
+          "coverage": {
+            "picture_mean": 0.4057,
+            "picture_min": 0.0,
+            "parts_mean": 0.9906
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00029,
+              "px_mean": 1964.8,
+              "frames_any": 16,
+              "on_pictures_px_mean": 787.6,
+              "on_text_ui_px_mean": 1177.2
+            },
+            "medium": {
+              "frac_mean": 0.03155,
+              "px_mean": 238937.5,
+              "frames_any": 50,
+              "on_pictures_px_mean": 787.6,
+              "on_text_ui_px_mean": 1177.2,
+              "on_flagged_non_part_px_mean": 237407.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.5,
+            "mean": 0.75,
+            "p50": 1.0,
+            "p95": 2.0,
+            "max": 2.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 0.8763,
+              "recall_flagged": 0.7966,
+              "precision": 0.5344,
+              "n_gt": 97,
+              "n_prop": 189
+            },
+            "iou0.7": {
+              "recall": 0.866,
+              "recall_flagged": 0.7797,
+              "precision": 0.5238,
+              "n_gt": 97,
+              "n_prop": 189
+            }
+          }
+        },
+        "subpane": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 2,
+            "rate": 0.0556,
+            "during_scroll": {
+              "frames": 2,
+              "of": 28,
+              "rate": 0.0714
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 2
+          },
+          "coverage": {
+            "picture_mean": 0.1785,
+            "picture_min": 0.1239,
+            "parts_mean": 0.9976
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00096,
+              "px_mean": 6152.1,
+              "frames_any": 11,
+              "on_pictures_px_mean": 5957.1,
+              "on_text_ui_px_mean": 195.0
+            },
+            "medium": {
+              "frac_mean": 0.00918,
+              "px_mean": 68947.2,
+              "frames_any": 36,
+              "on_pictures_px_mean": 5957.1,
+              "on_text_ui_px_mean": 195.0,
+              "on_flagged_non_part_px_mean": 62935.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.75,
+            "mean": 0.25,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9985,
+              "n_gt": 549,
+              "n_prop": 656
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9985,
+              "n_gt": 549,
+              "n_prop": 656
+            }
+          }
+        },
+        "video": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1197,
+            "picture_min": 0.0939,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00017,
+              "px_mean": 863.8,
+              "frames_any": 2,
+              "on_pictures_px_mean": 863.8,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00221,
+              "px_mean": 16557.1,
+              "frames_any": 12,
+              "on_pictures_px_mean": 863.8,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 15693.3
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "per_sequence": {
+        "news_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 25,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 11,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.3869,
+            "picture_min": 0.127,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00137,
+              "px_mean": 5399.6,
+              "frames_any": 18,
+              "on_pictures_px_mean": 4093.3,
+              "on_text_ui_px_mean": 1306.2
+            },
+            "medium": {
+              "frac_mean": 0.14641,
+              "px_mean": 1063495.0,
+              "frames_any": 36,
+              "on_pictures_px_mean": 4093.3,
+              "on_text_ui_px_mean": 1306.2,
+              "on_flagged_non_part_px_mean": 1058813.4
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 177
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 177
+            }
+          }
+        },
+        "search_jumpy": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 5,
+            "rate": 0.1389,
+            "during_scroll": {
+              "frames": 1,
+              "of": 20,
+              "rate": 0.05
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 4,
+              "of": 16,
+              "rate": 0.25
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 5
+          },
+          "coverage": {
+            "picture_mean": 0.3363,
+            "picture_min": 0.227,
+            "parts_mean": 0.9998
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00141,
+              "px_mean": 8386.7,
+              "frames_any": 19,
+              "on_pictures_px_mean": 7628.4,
+              "on_text_ui_px_mean": 758.2
+            },
+            "medium": {
+              "frac_mean": 0.02596,
+              "px_mean": 189803.8,
+              "frames_any": 36,
+              "on_pictures_px_mean": 7628.4,
+              "on_text_ui_px_mean": 758.2,
+              "on_flagged_non_part_px_mean": 181750.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 25,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 0.9973,
+              "recall_flagged": 1.0,
+              "precision": 0.9695,
+              "n_gt": 1122,
+              "n_prop": 1310
+            },
+            "iou0.7": {
+              "recall": 0.9786,
+              "recall_flagged": 0.9517,
+              "precision": 0.9504,
+              "n_gt": 1122,
+              "n_prop": 1310
+            }
+          }
+        },
+        "shop_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 31,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.3221,
+            "picture_min": 0.055,
+            "parts_mean": 0.9954
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00017,
+              "px_mean": 1234.2,
+              "frames_any": 2,
+              "on_pictures_px_mean": 1225.0,
+              "on_text_ui_px_mean": 9.2
+            },
+            "medium": {
+              "frac_mean": 0.02072,
+              "px_mean": 155985.6,
+              "frames_any": 21,
+              "on_pictures_px_mean": 1225.0,
+              "on_text_ui_px_mean": 9.2,
+              "on_flagged_non_part_px_mean": 154760.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 5,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.6611,
+              "n_gt": 260,
+              "n_prop": 478
+            },
+            "iou0.7": {
+              "recall": 0.9654,
+              "recall_flagged": 1.0,
+              "precision": 0.636,
+              "n_gt": 260,
+              "n_prop": 478
+            }
+          }
+        },
+        "social_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 33,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 3,
+            "rate": 0.0909,
+            "during_scroll": {
+              "frames": 3,
+              "of": 30,
+              "rate": 0.1
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 6,
+              "rate": 0.0
+            },
+            "picture_target_frames": 33,
+            "part_target_frames": 3
+          },
+          "coverage": {
+            "picture_mean": 0.3385,
+            "picture_min": 0.0,
+            "parts_mean": 0.992
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00044,
+              "px_mean": 2947.2,
+              "frames_any": 16,
+              "on_pictures_px_mean": 1181.4,
+              "on_text_ui_px_mean": 1765.8
+            },
+            "medium": {
+              "frac_mean": 0.02746,
+              "px_mean": 209428.1,
+              "frames_any": 32,
+              "on_pictures_px_mean": 1181.4,
+              "on_text_ui_px_mean": 1765.8,
+              "on_flagged_non_part_px_mean": 207133.8
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.5,
+            "mean": 0.5,
+            "p50": 1.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 0.8065,
+              "recall_flagged": 0.6667,
+              "precision": 0.4918,
+              "n_gt": 62,
+              "n_prop": 122
+            },
+            "iou0.7": {
+              "recall": 0.7903,
+              "recall_flagged": 0.6389,
+              "precision": 0.4754,
+              "n_gt": 62,
+              "n_prop": 122
+            }
+          }
+        },
+        "search_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 1,
+            "rate": 0.0278,
+            "during_scroll": {
+              "frames": 1,
+              "of": 26,
+              "rate": 0.0385
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 1
+          },
+          "coverage": {
+            "picture_mean": 0.3081,
+            "picture_min": 0.2455,
+            "parts_mean": 0.9989
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00246,
+              "px_mean": 15132.4,
+              "frames_any": 21,
+              "on_pictures_px_mean": 14693.1,
+              "on_text_ui_px_mean": 439.3
+            },
+            "medium": {
+              "frac_mean": 0.02529,
+              "px_mean": 185382.6,
+              "frames_any": 36,
+              "on_pictures_px_mean": 14693.1,
+              "on_text_ui_px_mean": 439.3,
+              "on_flagged_non_part_px_mean": 170445.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 15,
+            "never_covered": 1,
+            "covered_on_arrival_rate": 0.9333,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 0.9967,
+              "recall_flagged": 0.9937,
+              "precision": 0.9828,
+              "n_gt": 1201,
+              "n_prop": 1396
+            },
+            "iou0.7": {
+              "recall": 0.9958,
+              "recall_flagged": 0.9937,
+              "precision": 0.9821,
+              "n_gt": 1201,
+              "n_prop": 1396
+            }
+          }
+        },
+        "nav_search_to_news": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 21,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 7,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.5625,
+            "picture_min": 0.2432,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0016,
+              "px_mean": 10813.3,
+              "frames_any": 21,
+              "on_pictures_px_mean": 10652.4,
+              "on_text_ui_px_mean": 160.9
+            },
+            "medium": {
+              "frac_mean": 0.02508,
+              "px_mean": 187053.3,
+              "frames_any": 36,
+              "on_pictures_px_mean": 10652.4,
+              "on_text_ui_px_mean": 160.9,
+              "on_flagged_non_part_px_mean": 176373.8
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 14,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 664,
+              "n_prop": 769
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 664,
+              "n_prop": 769
+            }
+          }
+        },
+        "nav_social_to_shop": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 2,
+            "rate": 0.0556,
+            "during_scroll": {
+              "frames": 2,
+              "of": 22,
+              "rate": 0.0909
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 2
+          },
+          "coverage": {
+            "picture_mean": 0.3629,
+            "picture_min": 0.1949,
+            "parts_mean": 0.994
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.01986,
+              "px_mean": 148978.1,
+              "frames_any": 18,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 148978.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 3,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.6667,
+            "mean": 0.667,
+            "p50": 0.0,
+            "p95": 2.0,
+            "max": 2.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.8768,
+              "n_gt": 179,
+              "n_prop": 211
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.8768,
+              "n_gt": 179,
+              "n_prop": 211
+            }
+          }
+        },
+        "subpane_grid": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 2,
+            "rate": 0.0556,
+            "during_scroll": {
+              "frames": 2,
+              "of": 28,
+              "rate": 0.0714
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 2
+          },
+          "coverage": {
+            "picture_mean": 0.1785,
+            "picture_min": 0.1239,
+            "parts_mean": 0.9976
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00096,
+              "px_mean": 6152.1,
+              "frames_any": 11,
+              "on_pictures_px_mean": 5957.1,
+              "on_text_ui_px_mean": 195.0
+            },
+            "medium": {
+              "frac_mean": 0.00918,
+              "px_mean": 68947.2,
+              "frames_any": 36,
+              "on_pictures_px_mean": 5957.1,
+              "on_text_ui_px_mean": 195.0,
+              "on_flagged_non_part_px_mean": 62935.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 0.75,
+            "mean": 0.25,
+            "p50": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9985,
+              "n_gt": 549,
+              "n_prop": 656
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 0.9985,
+              "n_gt": 549,
+              "n_prop": 656
+            }
+          }
+        },
+        "video_play": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1197,
+            "picture_min": 0.0939,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.00017,
+              "px_mean": 863.8,
+              "frames_any": 2,
+              "on_pictures_px_mean": 863.8,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00221,
+              "px_mean": 16557.1,
+              "frames_any": 12,
+              "on_pictures_px_mean": 863.8,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 15693.3
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 0,
+            "unresolved": 0,
+            "lag0_rate": null
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "timings_ms": {
+        "analyze_wall_ms": {
+          "n": 324,
+          "mean": 37.73,
+          "p50": 35.76,
+          "p95": 56.0,
+          "max": 59.17
+        },
+        "analyzer.propose": {
+          "n": 324,
+          "mean": 36.99,
+          "p50": 35.0,
+          "p95": 54.75,
+          "max": 58.14
+        },
+        "analyzer.propose.scale": {
+          "n": 324,
+          "mean": 0.82,
+          "p50": 0.8,
+          "p95": 1.06,
+          "max": 1.71
+        },
+        "analyzer.propose.masks": {
+          "n": 324,
+          "mean": 7.1,
+          "p50": 7.03,
+          "p95": 8.6,
+          "max": 10.37
+        },
+        "analyzer.propose.leaves": {
+          "n": 324,
+          "mean": 16.07,
+          "p50": 15.04,
+          "p95": 26.68,
+          "max": 33.12
+        },
+        "analyzer.propose.regions": {
+          "n": 324,
+          "mean": 8.41,
+          "p50": 7.64,
+          "p95": 17.23,
+          "max": 19.54
+        },
+        "analyzer.propose.tiles": {
+          "n": 324,
+          "mean": 2.72,
+          "p50": 2.48,
+          "p95": 3.96,
+          "max": 4.94
+        },
+        "analyzer.cache": {
+          "n": 324,
+          "mean": 0.42,
+          "p50": 0.41,
+          "p95": 0.94,
+          "max": 1.88
+        },
+        "analyzer.classify": {
+          "n": 324,
+          "mean": 0.06,
+          "p50": 0.04,
+          "p95": 0.2,
+          "max": 0.52
+        },
+        "analyzer.second_look": {
+          "n": 324,
+          "mean": 0.03,
+          "p50": 0.02,
+          "p95": 0.07,
+          "max": 0.08
+        },
+        "analyzer.decide": {
+          "n": 324,
+          "mean": 0.22,
+          "p50": 0.15,
+          "p95": 0.59,
+          "max": 0.75
+        },
+        "analyzer.total": {
+          "n": 324,
+          "mean": 37.73,
+          "p50": 35.75,
+          "p95": 55.99,
+          "max": 59.17
+        }
+      },
+      "oracle_locate": {
+        "located_view": 1100,
+        "located_full": 0,
+        "located_match": 0,
+        "unlocated": 0
+      },
+      "wall_s": 15.83
+    },
+    {
+      "level": "analyzer",
+      "variant": "analyzer[gt]",
+      "res": "retina",
+      "size": [
+        3456,
+        2234
+      ],
+      "impl": "gt_proposals+oracle",
+      "note": "perfect proposals (GT rects) + oracle verdicts",
+      "overall": {
+        "frames": 324,
+        "frames_with_flagged": 321,
+        "exposure": {
+          "semantics": "medium",
+          "frames": 0,
+          "rate": 0.0,
+          "during_scroll": {
+            "frames": 0,
+            "of": 207,
+            "rate": 0.0
+          },
+          "after_navigation": {
+            "frames": 0,
+            "of": 24,
+            "rate": 0.0
+          },
+          "static": {
+            "frames": 0,
+            "of": 99,
+            "rate": 0.0
+          },
+          "picture_target_frames": 320,
+          "part_target_frames": 0
+        },
+        "coverage": {
+          "picture_mean": 0.1704,
+          "picture_min": 0.0071,
+          "parts_mean": 1.0
+        },
+        "over_mask": {
+          "aggressive": {
+            "frac_mean": 0.0,
+            "px_mean": 0.0,
+            "frames_any": 0,
+            "on_pictures_px_mean": 0.0,
+            "on_text_ui_px_mean": 0.0
+          },
+          "medium": {
+            "frac_mean": 0.00927,
+            "px_mean": 69456.9,
+            "frames_any": 93,
+            "on_pictures_px_mean": 0.0,
+            "on_text_ui_px_mean": 0.0,
+            "on_flagged_non_part_px_mean": 69456.9
+          }
+        },
+        "scroll_follow_lag_frames": {
+          "semantics": "medium",
+          "events": 1704,
+          "unresolved": 0,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "lag0_rate": 1.0
+        },
+        "time_to_cover_frames": {
+          "appearances": 78,
+          "never_covered": 0,
+          "covered_on_arrival_rate": 1.0,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "proposals": {
+          "iou0.5": {
+            "recall": 1.0,
+            "recall_flagged": 1.0,
+            "precision": 1.0,
+            "n_gt": 4542,
+            "n_prop": 5320
+          },
+          "iou0.7": {
+            "recall": 1.0,
+            "recall_flagged": 1.0,
+            "precision": 1.0,
+            "n_gt": 4542,
+            "n_prop": 5320
+          }
+        }
+      },
+      "per_layout": {
+        "image_search": {
+          "frames": 90,
+          "frames_with_flagged": 90,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 60,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 30,
+              "rate": 0.0
+            },
+            "picture_target_frames": 90,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1367,
+            "picture_min": 0.1117,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00274,
+              "px_mean": 20107.8,
+              "frames_any": 33,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 20107.8
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 1002,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 52,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 2939,
+              "n_prop": 3394
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 2939,
+              "n_prop": 3394
+            }
+          }
+        },
+        "news": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 14,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1773,
+            "picture_min": 0.0807,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00156,
+              "px_mean": 11757.0,
+              "frames_any": 14,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 11757.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 144,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 260
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 193,
+              "n_prop": 260
+            }
+          }
+        },
+        "shopping": {
+          "frames": 54,
+          "frames_with_flagged": 54,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 39,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 54,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1212,
+            "picture_min": 0.0353,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00088,
+              "px_mean": 6766.7,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 6766.7
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 152,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 6,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 404,
+              "n_prop": 504
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 404,
+              "n_prop": 504
+            }
+          }
+        },
+        "social": {
+          "frames": 54,
+          "frames_with_flagged": 51,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 44,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 50,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1147,
+            "picture_min": 0.0071,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00128,
+              "px_mean": 9859.3,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 9859.3
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 87,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 97,
+              "n_prop": 123
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 97,
+              "n_prop": 123
+            }
+          }
+        },
+        "subpane": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 28,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.4898,
+            "picture_min": 0.4329,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.07093,
+              "px_mean": 532268.6,
+              "frames_any": 36,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 532268.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 307,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 549,
+              "n_prop": 677
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 549,
+              "n_prop": 677
+            }
+          }
+        },
+        "video": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0775,
+            "picture_min": 0.0608,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 0.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 12,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "per_sequence": {
+        "news_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 25,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 11,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0891,
+            "picture_min": 0.0807,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00104,
+              "px_mean": 7602.2,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 7602.2
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 119,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 4,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 181
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 145,
+              "n_prop": 181
+            }
+          }
+        },
+        "search_jumpy": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 20,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 16,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1485,
+            "picture_min": 0.1157,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00315,
+              "px_mean": 23073.9,
+              "frames_any": 14,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 23073.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 311,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 25,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1122,
+              "n_prop": 1306
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1122,
+              "n_prop": 1306
+            }
+          }
+        },
+        "shop_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 31,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 5,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.118,
+            "picture_min": 0.0353,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00132,
+              "px_mean": 10150.0,
+              "frames_any": 5,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 10150.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 136,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 5,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 260,
+              "n_prop": 360
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 260,
+              "n_prop": 360
+            }
+          }
+        },
+        "social_momentum": {
+          "frames": 36,
+          "frames_with_flagged": 33,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 30,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 6,
+              "rate": 0.0
+            },
+            "picture_target_frames": 32,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0891,
+            "picture_min": 0.0071,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00155,
+              "px_mean": 11977.8,
+              "frames_any": 2,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 11977.8
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 36,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 62,
+              "n_prop": 74
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 62,
+              "n_prop": 74
+            }
+          }
+        },
+        "search_smooth": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 26,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 10,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.13,
+            "picture_min": 0.1117,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00272,
+              "px_mean": 19948.0,
+              "frames_any": 13,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 19948.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 454,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 15,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1201,
+              "n_prop": 1389
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 1201,
+              "n_prop": 1389
+            }
+          }
+        },
+        "nav_search_to_news": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 21,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 7,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.2401,
+            "picture_min": 0.0863,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00229,
+              "px_mean": 17280.9,
+              "frames_any": 15,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 17280.9
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 262,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 14,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 664,
+              "n_prop": 778
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 664,
+              "n_prop": 778
+            }
+          }
+        },
+        "nav_social_to_shop": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 22,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 12,
+              "rate": 0.0
+            },
+            "static": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.1446,
+            "picture_min": 0.1143,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.00037,
+              "px_mean": 2811.1,
+              "frames_any": 3,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 2811.1
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 67,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 3,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 179,
+              "n_prop": 193
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 179,
+              "n_prop": 193
+            }
+          }
+        },
+        "subpane_grid": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 28,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 8,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.4898,
+            "picture_min": 0.4329,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.07093,
+              "px_mean": 532268.6,
+              "frames_any": 36,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 532268.6
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 307,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 8,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 549,
+              "n_prop": 677
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 549,
+              "n_prop": 677
+            }
+          }
+        },
+        "video_play": {
+          "frames": 36,
+          "frames_with_flagged": 36,
+          "exposure": {
+            "semantics": "medium",
+            "frames": 0,
+            "rate": 0.0,
+            "during_scroll": {
+              "frames": 0,
+              "of": 4,
+              "rate": 0.0
+            },
+            "after_navigation": {
+              "frames": 0,
+              "of": 0,
+              "rate": null
+            },
+            "static": {
+              "frames": 0,
+              "of": 32,
+              "rate": 0.0
+            },
+            "picture_target_frames": 36,
+            "part_target_frames": 0
+          },
+          "coverage": {
+            "picture_mean": 0.0775,
+            "picture_min": 0.0608,
+            "parts_mean": 1.0
+          },
+          "over_mask": {
+            "aggressive": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0
+            },
+            "medium": {
+              "frac_mean": 0.0,
+              "px_mean": 0.0,
+              "frames_any": 0,
+              "on_pictures_px_mean": 0.0,
+              "on_text_ui_px_mean": 0.0,
+              "on_flagged_non_part_px_mean": 0.0
+            }
+          },
+          "scroll_follow_lag_frames": {
+            "semantics": "medium",
+            "events": 12,
+            "unresolved": 0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0,
+            "lag0_rate": 1.0
+          },
+          "time_to_cover_frames": {
+            "appearances": 2,
+            "never_covered": 0,
+            "covered_on_arrival_rate": 1.0,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "proposals": {
+            "iou0.5": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            },
+            "iou0.7": {
+              "recall": 1.0,
+              "recall_flagged": 1.0,
+              "precision": 1.0,
+              "n_gt": 360,
+              "n_prop": 362
+            }
+          }
+        }
+      },
+      "timings_ms": {
+        "analyze_wall_ms": {
+          "n": 324,
+          "mean": 0.07,
+          "p50": 0.04,
+          "p95": 0.2,
+          "max": 0.31
+        },
+        "analyzer.total": {
+          "n": 324,
+          "mean": 0.07,
+          "p50": 0.04,
+          "p95": 0.2,
+          "max": 0.31
+        }
+      },
+      "oracle_locate": {
+        "located_view": 324,
+        "located_full": 0,
+        "located_match": 0,
+        "unlocated": 0
+      },
+      "wall_s": 3.43
+    }
+  ]
+}

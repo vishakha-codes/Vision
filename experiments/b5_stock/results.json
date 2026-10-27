@@ -1,0 +1,125 @@
+{
+  "fixture": "/home/ubuntu/vision/fixtures/safe/synthetic_moving_regions.mp4",
+  "gt": "/home/ubuntu/vision/fixtures/safe/synthetic_moving_regions.gt.json",
+  "policy": "balanced",
+  "policy_version": "balanced-v2",
+  "opencv_version": "5.0.0",
+  "frame_count": 750,
+  "mean_iou_flagged": 0.9582434716105751,
+  "exposure_gap_frames": 0,
+  "flicker_on_off_count": 0,
+  "reinspect_crop_count": 40,
+  "masked_frames": 750,
+  "first_pass_flagged_score_mean": 0.6387236312380236,
+  "post_reinspect_flagged_score_mean": 0.9211167614613757,
+  "tool_sequences": {
+    "DETECT\u2192REINSPECT\u2192MASK": 40,
+    "DETECT\u2192MASK": 710
+  },
+  "agent": {
+    "reinspect_budget": 40,
+    "reinspect_cooldown_frames": 12,
+    "budget_left": 0,
+    "bedrock": "unavailable_local_controller"
+  },
+  "timings_ms": {
+    "scene_change": {
+      "mean": 0.4255379919995524,
+      "p50": 0.41126399997892804,
+      "p95": 0.6257709999886174,
+      "n": 750
+    },
+    "extract_tiles": {
+      "mean": 0.579440935999628,
+      "p50": 0.5756589999919015,
+      "p95": 0.6592539999985547,
+      "n": 750
+    },
+    "detect_regions": {
+      "mean": 1.7708937560000777,
+      "p50": 1.764820999994754,
+      "p95": 1.8286839999746007,
+      "n": 750
+    },
+    "policy.evaluate": {
+      "mean": 0.019700146666953817,
+      "p50": 0.01942300002610864,
+      "p95": 0.02162100000191458,
+      "n": 750
+    },
+    "reinspect_crop": {
+      "mean": 0.8074447000019802,
+      "p50": 0.8014549999870724,
+      "p95": 0.8434860000079425,
+      "n": 40
+    },
+    "track_and_predict": {
+      "mean": 1.26938190400017,
+      "p50": 1.2578770000004624,
+      "p95": 1.3777130000107718,
+      "n": 750
+    },
+    "render_mask_spec": {
+      "mean": 0.2985808839996101,
+      "p50": 0.2956460000120842,
+      "p95": 0.31505100000117636,
+      "n": 750
+    },
+    "scene_cut": {
+      "mean": 2.9639725994664534,
+      "p50": 2.964385000012726,
+      "p95": 2.986769000017375,
+      "n": 749
+    }
+  },
+  "policy_spread": {
+    "sample_flagged_score": 0.6387236312380236,
+    "post_reinspect_score": 0.9211167614613757,
+    "strict": "OPAQUE_MASK",
+    "balanced": "BLUR",
+    "relaxed": "REVIEW",
+    "first_pass": {
+      "strict": "OPAQUE_MASK",
+      "balanced": "BLUR",
+      "relaxed": "REVIEW"
+    },
+    "post_reinspect": {
+      "strict": "OPAQUE_MASK",
+      "balanced": "BLUR",
+      "relaxed": "NO_ACTION"
+    },
+    "intended_mapping": {
+      "fixture_first_pass_score": 0.64,
+      "fixture_reinspect_score": 0.92,
+      "first_pass": {
+        "strict": "OPAQUE_MASK",
+        "balanced": "BLUR",
+        "relaxed": "REVIEW"
+      },
+      "post_reinspect": {
+        "strict": "OPAQUE_MASK",
+        "balanced": "BLUR",
+        "relaxed": "NO_ACTION"
+      },
+      "notes": "Strict treats ~0.64 as HIGH (class=block) and applies OPAQUE without reinspect. Balanced treats ~0.64 as MID and reinspecs only when budget/cooldown allow; block_trigger 0.97 keeps post-reinspect BLUR (not Strict OPAQUE). Relaxed first-pass ~0.64 is MID/below min_conf \u2192 REVIEW; overlay 0.94 / block 0.99 sit above typical reinspect ~0.92 so post-reinspect stays NO_ACTION."
+    }
+  },
+  "b5_variant": "stock",
+  "opencv_package": "opencv-python==5.0.0.93",
+  "instance_id": "<box-instance-id>",
+  "instance_type": "c8g.large",
+  "ami": "ami-01db31139bc5615d8",
+  "availability_zone": "us-east-1d",
+  "public_ip": "<box-public-ip>",
+  "machine": "aarch64",
+  "python": "3.12.3",
+  "python_executable": "/home/ubuntu/venv-stock-opencv/bin/python",
+  "cool_path": null,
+  "ld_library_path": "/home/ubuntu/venv-stock-opencv/lib/python3.12/site-packages/cv2/../../lib64:",
+  "wall_clock_s": 6.472844301000009,
+  "per_frame_stage_mean_ms": 8.134952918134426,
+  "started_utc": "2026-10-26T04:28:18.544566+00:00",
+  "finished_utc": "2026-10-26T04:28:25.017429+00:00",
+  "source": "vision_core.eval.evaluate_fixture + agent.orchestrator (Balanced / B3)",
+  "notes": "Same fixture, same Balanced policy, same c8g.large. Stock pip opencv-python in a separate venv (not /opt/cool)."
+}

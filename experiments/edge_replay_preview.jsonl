@@ -1,0 +1,8 @@
+{"i": 1, "frame_id": 0, "status": "CLOUD_LOOK", "mood": "covering", "policy": "strict", "backend": "local", "detect": "synthetic", "actions": ["OPAQUE_MASK", "NO_ACTION", "NO_ACTION"], "error": null}
+{"i": 2, "frame_id": 1, "status": "LOCAL_HOLD", "mood": "covering", "policy": "strict", "backend": "local", "detect": "synthetic", "actions": ["OPAQUE_MASK", "NO_ACTION", "NO_ACTION"], "error": null}
+{"i": 3, "frame_id": 2, "status": "CLOUD_LOOK", "mood": "covering", "policy": "balanced", "backend": "local", "detect": "synthetic", "actions": ["NO_ACTION", "NO_ACTION", "BLUR"], "error": null}
+{"i": 4, "frame_id": 3, "status": "LOCAL_HOLD", "mood": "covering", "policy": "balanced", "backend": "local", "detect": "synthetic", "actions": ["NO_ACTION", "NO_ACTION", "BLUR"], "error": null}
+{"i": 5, "frame_id": 4, "status": "CLOUD_LOOK", "mood": "unsure", "policy": "relaxed", "backend": "local", "detect": "synthetic", "actions": ["NO_ACTION", "NO_ACTION", "NO_ACTION"], "error": null}
+{"i": 6, "frame_id": 5, "status": "LOCAL_HOLD", "mood": "unsure", "policy": "relaxed", "backend": "local", "detect": "synthetic", "actions": ["NO_ACTION", "NO_ACTION", "NO_ACTION"], "error": null}
+{"i": 7, "frame_id": 6, "status": "CLOUD_LOOK", "mood": "covering", "policy": "strict", "backend": "local", "detect": "synthetic", "actions": ["NO_ACTION", "OPAQUE_MASK", "NO_ACTION"], "error": null}
+{"i": 8, "frame_id": 7, "status": "LOCAL_HOLD", "mood": "covering", "policy": "strict", "backend": "local", "detect": "synthetic", "actions": ["NO_ACTION", "OPAQUE_MASK", "NO_ACTION"], "error": null}

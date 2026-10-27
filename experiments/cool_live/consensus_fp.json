@@ -1,0 +1,67 @@
+{
+  "pictures": 150,
+  "source": "vision_core.live.synth.photo_texture, benign only; recall not measured",
+  "opencv": "5.0.0",
+  "schemes": {
+    "max(whole) [~local first pass, small pictures] / aggressive": {
+      "SAFE": 141,
+      "UNSURE": 6,
+      "UNSAFE": 3,
+      "flagged_rate": 0.06
+    },
+    "max(whole) [~local first pass, small pictures] / medium": {
+      "SAFE": 149,
+      "UNSURE": 1,
+      "UNSAFE": 0,
+      "flagged_rate": 0.007
+    },
+    "max(whole+2x2) [~local first pass, large pictures] / aggressive": {
+      "SAFE": 107,
+      "UNSURE": 32,
+      "UNSAFE": 11,
+      "flagged_rate": 0.287
+    },
+    "max(whole+2x2) [~local first pass, large pictures] / medium": {
+      "SAFE": 143,
+      "UNSURE": 5,
+      "UNSAFE": 2,
+      "flagged_rate": 0.047
+    },
+    "max(3x3 at 0.4) [rejected L2 draft] / aggressive": {
+      "SAFE": 68,
+      "UNSURE": 47,
+      "UNSAFE": 35,
+      "flagged_rate": 0.547
+    },
+    "max(3x3 at 0.4) [rejected L2 draft] / medium": {
+      "SAFE": 128,
+      "UNSURE": 16,
+      "UNSAFE": 6,
+      "flagged_rate": 0.147
+    },
+    "SHIPPED l2 consensus / aggressive": {
+      "SAFE": 133,
+      "UNSURE": 14,
+      "UNSAFE": 3,
+      "flagged_rate": 0.113
+    },
+    "SHIPPED l2 consensus / medium": {
+      "SAFE": 147,
+      "UNSURE": 3,
+      "UNSAFE": 0,
+      "flagged_rate": 0.02
+    },
+    "SHIPPED deep consensus / aggressive": {
+      "SAFE": 126,
+      "UNSURE": 18,
+      "UNSAFE": 6,
+      "flagged_rate": 0.16
+    },
+    "SHIPPED deep consensus / medium": {
+      "SAFE": 146,
+      "UNSURE": 4,
+      "UNSAFE": 0,
+      "flagged_rate": 0.027
+    }
+  }
+}

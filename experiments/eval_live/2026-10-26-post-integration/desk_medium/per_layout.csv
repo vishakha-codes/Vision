@@ -1,0 +1,7 @@
+variant,res,layout,frames,exposure_rate,exposure_frames,scroll_exposure_rate,nav_exposure_rate,coverage_picture,coverage_parts,over_mask_aggr_frac,over_mask_med_frac,lag_mean,lag_events,lag_unresolved,ttc_mean,recall_iou0.5,precision_iou0.5
+engine[auto]/latency=0,retina,ALL,240,0.0052,1,0.0,0.0,0.7166,0.9946,0.00117,0.02841,,0,0,0.111,,
+engine[auto]/latency=0,retina,desktop,240,0.0052,1,0.0,0.0,0.7166,0.9946,0.00117,0.02841,,0,0,0.111,,
+engine[auto]/latency=2,retina,ALL,240,0.0984,19,0.0192,0.0,0.6663,0.8973,0.00163,0.02667,,0,0,2.111,,
+engine[auto]/latency=2,retina,desktop,240,0.0984,19,0.0192,0.0,0.6663,0.8973,0.00163,0.02667,,0,0,2.111,,
+engine[auto]/latency=5,retina,ALL,240,0.2539,49,0.1538,0.0,0.5911,0.7351,0.00281,0.02468,,0,0,5.444,,
+engine[auto]/latency=5,retina,desktop,240,0.2539,49,0.1538,0.0,0.5911,0.7351,0.00281,0.02468,,0,0,5.444,,

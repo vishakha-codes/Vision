@@ -1,0 +1,40 @@
+[eval_live] retina desk_static_photo    engine[auto]/latency=0           exposed=0/24 (3.0s)
+[eval_live] retina desk_static_photo    engine[auto]/latency=2           exposed=2/24 (2.4s)
+[eval_live] retina desk_static_photo    engine[auto]/latency=5           exposed=5/24 (2.2s)
+[eval_live] retina desk_static_gradient engine[auto]/latency=0           exposed=0/24 (3.4s)
+[eval_live] retina desk_static_gradient engine[auto]/latency=2           exposed=2/24 (2.5s)
+[eval_live] retina desk_static_gradient engine[auto]/latency=5           exposed=5/24 (2.3s)
+[eval_live] retina desk_static_solid    engine[auto]/latency=0           exposed=0/24 (2.9s)
+[eval_live] retina desk_static_solid    engine[auto]/latency=2           exposed=2/24 (2.5s)
+[eval_live] retina desk_static_solid    engine[auto]/latency=5           exposed=5/24 (2.2s)
+[eval_live] retina desk_clean           engine[auto]/latency=0           exposed=0/24 (2.8s)
+[eval_live] retina desk_clean           engine[auto]/latency=2           exposed=0/24 (2.4s)
+[eval_live] retina desk_clean           engine[auto]/latency=5           exposed=0/24 (2.1s)
+[eval_live] retina desk_drag            engine[auto]/latency=0           exposed=0/24 (3.0s)
+[eval_live] retina desk_drag            engine[auto]/latency=2           exposed=2/24 (2.5s)
+[eval_live] retina desk_drag            engine[auto]/latency=5           exposed=5/24 (2.2s)
+[eval_live] retina desk_cmdtab          engine[auto]/latency=0           exposed=0/24 (2.9s)
+[eval_live] retina desk_cmdtab          engine[auto]/latency=2           exposed=2/24 (2.5s)
+[eval_live] retina desk_cmdtab          engine[auto]/latency=5           exposed=5/24 (3.3s)
+[eval_live] retina desk_scroll_clock    engine[auto]/latency=0           exposed=0/24 (3.5s)
+[eval_live] retina desk_scroll_clock    engine[auto]/latency=2           exposed=2/24 (2.6s)
+[eval_live] retina desk_scroll_clock    engine[auto]/latency=5           exposed=5/24 (2.3s)
+[eval_live] retina desk_nav_clean       engine[auto]/latency=0           exposed=0/24 (2.9s)
+[eval_live] retina desk_nav_clean       engine[auto]/latency=2           exposed=2/24 (2.5s)
+[eval_live] retina desk_nav_clean       engine[auto]/latency=5           exposed=5/24 (2.2s)
+[eval_live] retina desk_open_close      engine[auto]/latency=0           exposed=1/24 (2.8s)
+[eval_live] retina desk_open_close      engine[auto]/latency=2           exposed=3/24 (2.4s)
+[eval_live] retina desk_open_close      engine[auto]/latency=5           exposed=9/24 (2.1s)
+[eval_live] retina desk_maximised       engine[auto]/latency=0           exposed=0/24 (3.4s)
+[eval_live] retina desk_maximised       engine[auto]/latency=2           exposed=2/24 (2.6s)
+[eval_live] retina desk_maximised       engine[auto]/latency=5           exposed=5/24 (2.3s)
+variant                            res       exp  scroll    nav    cov   overA   overM   lag unres  R@.5  P@.5    ms/f
+engine[auto]/latency=0             retina  0.005   0.000  0.000  0.717  0.0012  0.0284     -     0     -     -   122.0
+engine[auto]/latency=2             retina  0.098   0.019  0.000  0.666  0.0016  0.0267     -     0     -     -    97.8
+engine[auto]/latency=5             retina  0.254   0.154  0.000  0.591  0.0028  0.0247     -     0     -     -    90.8
+
+desktop: variant                   res     sysUI   maxM  outOwn   leak  1flag  clean
+engine[auto]/latency=0             retina      0  0.067       0      0   1.68 0.0000
+engine[auto]/latency=2             retina      0  0.067       0      0   1.68 0.0000
+engine[auto]/latency=5             retina      0  0.069       0      0   1.68 0.0000
+wrote experiments/eval_live/2026-10-26-post-integration/desk_medium/results.json

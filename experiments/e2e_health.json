@@ -1,0 +1,1 @@
+{"ok":true,"opencv_version":"5.0.0","agent":{"status":"ready","mode":"local_deterministic","controller":"agent.orchestrator.Orchestrator"},"bedrock_available":false,"region":"us-east-1","image_persisted":false,"runtime":"graviton-stock-opencv5"}

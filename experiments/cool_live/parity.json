@@ -1,0 +1,41 @@
+{
+  "reference": "stock_dynamic (OpenCV 5.0.0 wheel, original nudenet 320n.onnx)",
+  "raw": {
+    "cool_static_b4": {
+      "shape": [
+        4,
+        22,
+        2100
+      ],
+      "max_abs_diff_class_scores": 0.003177611157298088,
+      "max_abs_diff_box_px": 6.6486968994140625,
+      "max_class_score_ref": 0.19527092576026917,
+      "argmax_class_agreement": 0.98
+    },
+    "stock_static_b4": {
+      "shape": [
+        4,
+        22,
+        2100
+      ],
+      "max_abs_diff_class_scores": 0.0,
+      "max_abs_diff_box_px": 0.0,
+      "max_class_score_ref": 0.19527092576026917,
+      "argmax_class_agreement": 1.0
+    }
+  },
+  "top_dets": {
+    "cool_static_b4": {
+      "pictures": 150,
+      "same_label_list": 148,
+      "pictures_with_any_det_ref": 10,
+      "max_abs_score_diff": 0.006000000000000019
+    },
+    "stock_static_b4": {
+      "pictures": 150,
+      "same_label_list": 150,
+      "pictures_with_any_det_ref": 10,
+      "max_abs_score_diff": 0.0
+    }
+  }
+}

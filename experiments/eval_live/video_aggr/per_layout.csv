@@ -1,0 +1,13 @@
+variant,res,layout,frames,exposure_rate,exposure_frames,scroll_exposure_rate,nav_exposure_rate,coverage_picture,coverage_parts,over_mask_aggr_frac,over_mask_med_frac,lag_mean,lag_events,lag_unresolved,ttc_mean,recall_iou0.5,precision_iou0.5
+legacy[reflex/slow_brain],half,ALL,108,1.0,108,1.0,1.0,0.0896,0.7285,0.00025,0.00269,,0,0,15.714,,
+legacy[reflex/slow_brain],half,image_search,18,1.0,18,1.0,,0.1313,0.7027,0.00082,0.0081,,0,0,14.917,,
+legacy[reflex/slow_brain],half,news,54,1.0,54,1.0,1.0,0.0838,0.7915,1e-05,0.00088,,0,0,,,
+legacy[reflex/slow_brain],half,subpane,36,1.0,36,1.0,,0.0774,0.6469,0.00034,0.00269,,0,0,20.5,,
+legacy[reflex/instant_brain],half,ALL,108,1.0,108,1.0,1.0,0.0952,0.9513,0.0,0.00094,,0,0,15.786,,
+legacy[reflex/instant_brain],half,image_search,18,1.0,18,1.0,,0.1409,1.0,0.0,0.00496,,0,0,14.917,,
+legacy[reflex/instant_brain],half,news,54,1.0,54,1.0,1.0,0.0889,0.9032,0.0,0.0,,0,0,,,
+legacy[reflex/instant_brain],half,subpane,36,1.0,36,1.0,,0.0818,0.999,0.0,0.00035,,0,0,21.0,,
+engine[gt]/latency=2,half,ALL,108,0.3241,35,0.3243,0.1667,0.9102,0.9056,0.01712,0.22523,0.025,321,0,2.519,,
+engine[gt]/latency=2,half,image_search,18,0.5,9,0.5,,0.8542,0.8512,0.012,0.14818,0.034,118,0,2.167,,
+engine[gt]/latency=2,half,news,54,0.1296,7,0.0625,0.1667,0.9246,0.9258,0.02565,0.31748,0.011,94,0,1.5,,
+engine[gt]/latency=2,half,subpane,36,0.5278,19,0.5357,,0.9168,0.9026,0.00689,0.12538,0.028,109,0,3.667,,

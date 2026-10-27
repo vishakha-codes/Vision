@@ -1,0 +1,308 @@
+{
+  "variant": "stock_dynamic",
+  "instance_id": "<box-instance-id>",
+  "instance_type": "c8g.large (2 vCPU Graviton4, 4 GiB)",
+  "opencv": {
+    "version": "5.0.0",
+    "cool": false,
+    "module": "/home/ubuntu/venv-stock-opencv/lib/python3.12/site-packages/cv2/__init__.py",
+    "custom_hal": "YES (carotene (ver 0.0.1) KleidiCV (ver 26.03))",
+    "cpu_baseline": "NEON FP16",
+    "parallel": "pthreads",
+    "lapack": "YES (OpenBLAS /usr/lib64/libopenblasp.so",
+    "threads": 2
+  },
+  "detector": {
+    "class": "NudeNetDetector",
+    "model": "320n.onnx",
+    "backend": "cv2",
+    "input": 320,
+    "static_batch": null
+  },
+  "workload": {
+    "pictures": 150,
+    "views_total": 750,
+    "views_per_picture": 5.0,
+    "profile": "l2",
+    "seed": 7,
+    "source": "vision_core.live.synth.photo_texture (benign)"
+  },
+  "wall_s": 29.037,
+  "crops_per_s": 25.83,
+  "pictures_per_s": 5.17,
+  "picture_latency_ms": {
+    "p50": 230.46,
+    "p95": 235.92,
+    "mean": 193.57
+  },
+  "stages_ms": {
+    "decode_ms": {
+      "mean": 0.907,
+      "p50": 0.498,
+      "p95": 3.043
+    },
+    "hash_ms": {
+      "mean": 0.389,
+      "p50": 0.254,
+      "p95": 1.077
+    },
+    "prep_ms": {
+      "mean": 1.664,
+      "p50": 1.529,
+      "p95": 3.951
+    },
+    "forward_ms": {
+      "mean": 190.146,
+      "p50": 227.746,
+      "p95": 228.226
+    },
+    "post_ms": {
+      "mean": 0.462,
+      "p50": 0.481,
+      "p95": 0.667
+    },
+    "total_ms": {
+      "mean": 193.568,
+      "p50": 230.461,
+      "p95": 235.919
+    }
+  },
+  "cpu": {
+    "process_cpu_s": 57.65,
+    "cpu_util_of_2_vcpu": 0.993
+  },
+  "cost": {
+    "usd_per_hour": 0.07976,
+    "usd_per_1k_crops": 0.000858,
+    "usd_per_1k_pictures": 0.004289,
+    "note": "instance-hour cost at 100% busy; excludes EBS/data transfer"
+  },
+  "top_dets": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1309
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1309
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1216
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1216
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.507
+      ]
+    ],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1281
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.1473
+      ],
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.1473
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.2311
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_BREAST_COVERED",
+        0.1428
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1679
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1679
+      ]
+    ],
+    [],
+    [
+      [
+        "BUTTOCKS_EXPOSED",
+        0.1214
+      ],
+      [
+        "BUTTOCKS_EXPOSED",
+        0.121
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      [
+        "FEMALE_GENITALIA_EXPOSED",
+        0.2676
+      ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "raw_outputs": "experiments/cool_live/raw_stock_dynamic.npz",
+  "threads": 2,
+  "env": {
+    "LD_LIBRARY_PATH": "/home/ubuntu/venv-stock-opencv/lib/python3.12/site-packages/cv2/../../lib64:"
+  },
+  "time_utc": "2026-10-26T18:32:40Z"
+}

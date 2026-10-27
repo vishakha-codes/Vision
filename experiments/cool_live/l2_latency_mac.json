@@ -1,0 +1,54 @@
+{
+  "time_utc": "2026-10-26T18:33:53Z",
+  "endpoint": "https://<box>:8443/v1/second_look (pinned self-signed TLS, bearer token)",
+  "client": "vision_core.live.cloud_lane (httpx keep-alive)",
+  "n": 80,
+  "opencv_server": "4.14.0-pre",
+  "rtt_ms": {
+    "p50": 250.1,
+    "p95": 260.6,
+    "max": 626.7
+  },
+  "server_ms": {
+    "p50": 185.9,
+    "p95": 192.3
+  },
+  "network_plus_tls_ms": {
+    "p50": 64.5,
+    "p95": 68.0
+  },
+  "within_500ms": 0.9875,
+  "server_cache_hit_rtt_ms": {
+    "p50": 63.5,
+    "p95": 66.2
+  },
+  "by_long_side": {
+    "240": {
+      "n": 11,
+      "p50": 246.2,
+      "p95": 437.8
+    },
+    "400": {
+      "n": 11,
+      "p50": 249.0,
+      "p95": 250.8
+    },
+    "640": {
+      "n": 22,
+      "p50": 248.1,
+      "p95": 250.4
+    },
+    "900": {
+      "n": 16,
+      "p50": 252.9,
+      "p95": 302.7
+    },
+    "1200": {
+      "n": 20,
+      "p50": 256.3,
+      "p95": 265.4
+    }
+  },
+  "mean_jpeg_bytes": 52104,
+  "mean_views": 5.8
+}

@@ -1,0 +1,126 @@
+{
+  "fixture": "/home/ubuntu/vision/fixtures/safe/synthetic_moving_regions.mp4",
+  "gt": "/home/ubuntu/vision/fixtures/safe/synthetic_moving_regions.gt.json",
+  "policy": "balanced",
+  "policy_version": "balanced-v2",
+  "opencv_version": "4.14.0-pre",
+  "frame_count": 750,
+  "mean_iou_flagged": 0.9573124518804563,
+  "exposure_gap_frames": 1,
+  "flicker_on_off_count": 1,
+  "reinspect_crop_count": 40,
+  "masked_frames": 749,
+  "first_pass_flagged_score_mean": 0.6387214020059748,
+  "post_reinspect_flagged_score_mean": 0.9211277235969378,
+  "tool_sequences": {
+    "TIMEOUT\u2192NOT_PROTECTING": 1,
+    "DETECT\u2192REINSPECT\u2192MASK": 40,
+    "DETECT\u2192MASK": 709
+  },
+  "agent": {
+    "reinspect_budget": 40,
+    "reinspect_cooldown_frames": 12,
+    "budget_left": 0,
+    "bedrock": "unavailable_local_controller"
+  },
+  "timings_ms": {
+    "scene_change": {
+      "mean": 0.481116258666475,
+      "p50": 0.48284600001125,
+      "p95": 0.5222570000000815,
+      "n": 750
+    },
+    "extract_tiles": {
+      "mean": 0.668014003999815,
+      "p50": 0.7262440000204151,
+      "p95": 0.7738669999923786,
+      "n": 750
+    },
+    "render_mask_spec": {
+      "mean": 0.46615717866628376,
+      "p50": 0.49036600000818,
+      "p95": 0.5348649999916688,
+      "n": 750
+    },
+    "scene_cut": {
+      "mean": 2.9281887276364187,
+      "p50": 3.099591999983886,
+      "p95": 3.150822000009157,
+      "n": 749
+    },
+    "detect_regions": {
+      "mean": 1.4435601174902928,
+      "p50": 1.4881189999869093,
+      "p95": 1.557934999993904,
+      "n": 749
+    },
+    "policy.evaluate": {
+      "mean": 0.022496794392498472,
+      "p50": 0.021750000001929948,
+      "p95": 0.024668999998311847,
+      "n": 749
+    },
+    "reinspect_crop": {
+      "mean": 0.7729392250006129,
+      "p50": 0.7314739999912945,
+      "p95": 0.811113999986901,
+      "n": 40
+    },
+    "track_and_predict": {
+      "mean": 1.7931505567428963,
+      "p50": 1.9681180000077347,
+      "p95": 2.0331679999969765,
+      "n": 749
+    }
+  },
+  "policy_spread": {
+    "sample_flagged_score": 0.6387214020059748,
+    "post_reinspect_score": 0.9211277235969378,
+    "strict": "OPAQUE_MASK",
+    "balanced": "BLUR",
+    "relaxed": "REVIEW",
+    "first_pass": {
+      "strict": "OPAQUE_MASK",
+      "balanced": "BLUR",
+      "relaxed": "REVIEW"
+    },
+    "post_reinspect": {
+      "strict": "OPAQUE_MASK",
+      "balanced": "BLUR",
+      "relaxed": "NO_ACTION"
+    },
+    "intended_mapping": {
+      "fixture_first_pass_score": 0.64,
+      "fixture_reinspect_score": 0.92,
+      "first_pass": {
+        "strict": "OPAQUE_MASK",
+        "balanced": "BLUR",
+        "relaxed": "REVIEW"
+      },
+      "post_reinspect": {
+        "strict": "OPAQUE_MASK",
+        "balanced": "BLUR",
+        "relaxed": "NO_ACTION"
+      },
+      "notes": "Strict treats ~0.64 as HIGH (class=block) and applies OPAQUE without reinspect. Balanced treats ~0.64 as MID and reinspecs only when budget/cooldown allow; block_trigger 0.97 keeps post-reinspect BLUR (not Strict OPAQUE). Relaxed first-pass ~0.64 is MID/below min_conf \u2192 REVIEW; overlay 0.94 / block 0.99 sit above typical reinspect ~0.92 so post-reinspect stays NO_ACTION."
+    }
+  },
+  "b5_variant": "cool",
+  "opencv_package": "COOL /opt/cool (not pip)",
+  "instance_id": "<box-instance-id>",
+  "instance_type": "c8g.large",
+  "ami": "ami-01db31139bc5615d8",
+  "availability_zone": "us-east-1d",
+  "public_ip": "<box-public-ip>",
+  "machine": "aarch64",
+  "python": "3.12.3",
+  "python_executable": "/opt/cool/venvs/python_3.12/bin/python",
+  "cool_path": "/opt/cool",
+  "ld_library_path": "/opt/cool/cpp_sdk/lib:/opt/cool/cpp_sdk/lib",
+  "wall_clock_s": 10.007954696000013,
+  "per_frame_stage_mean_ms": 8.575622862595292,
+  "started_utc": "2026-10-26T04:28:03.163410+00:00",
+  "finished_utc": "2026-10-26T04:28:13.171384+00:00",
+  "source": "vision_core.eval.evaluate_fixture + agent.orchestrator (Balanced / B3)",
+  "notes": "Same fixture, same Balanced policy, same c8g.large. COOL AMI cv2 at /opt/cool (4.14.0-pre, NOT OpenCV 5)."
+}

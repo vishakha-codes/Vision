@@ -1,0 +1,188 @@
+{
+  "generated_utc": "2026-10-26T03:25:27.922865+00:00",
+  "finished_utc": "2026-10-26T03:25:37.444156+00:00",
+  "fixture": "fixtures/safe/synthetic_moving_regions.mp4",
+  "gt": "fixtures/safe/synthetic_moving_regions.gt.json",
+  "policy": "balanced",
+  "policy_path": "policies/balanced.json",
+  "detector": "synthetic_hsv_v1 (color blobs, not NSFW)",
+  "hardware": {
+    "label": "this Mac, arm64, OpenCV 5.0.0",
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.11.15",
+    "opencv": "5.0.0",
+    "cool_running": false,
+    "graviton": false,
+    "bedrock_invoke": false
+  },
+  "change_gate_b4": 0.08,
+  "brain_every_b4": 3,
+  "brain_every_ms_b4": 250.0,
+  "honesty": {
+    "live_nsfw_accuracy": false,
+    "zero_exposure_claim": false,
+    "cool_running": true,
+    "bedrock_invoke": false,
+    "b5_timings_invented": false
+  },
+  "baselines": [
+    {
+      "mean_iou_flagged": 0.021267361111111112,
+      "exposure_gap_frames": 0,
+      "flicker_on_off_count": 0,
+      "reinspect_count": 0,
+      "masked_frames": 750,
+      "frame_count": 750,
+      "iou_n": 750,
+      "elapsed_s": 0.7353254170157015,
+      "approximate": true,
+      "notes": "Thinner loop. Max flagged HSV score is treated as a whole-frame score; if any flagged blob is present the predicted cover is the entire 640x360 window. No track, hold, reinspect, or localization.",
+      "id": "B0",
+      "name": "whole-frame score \u2192 whole-window cover"
+    },
+    {
+      "mean_iou_flagged": 0.9590254778519507,
+      "exposure_gap_frames": 0,
+      "flicker_on_off_count": 0,
+      "reinspect_count": 0,
+      "masked_frames": 750,
+      "frame_count": 750,
+      "iou_n": 750,
+      "elapsed_s": 0.7312361669610254,
+      "approximate": true,
+      "notes": "Thinner loop. synthetic_hsv_v1 + Balanced policy.evaluate on detections only. No track_and_predict, no hysteresis carry, no reinspect_crop.",
+      "id": "B1",
+      "name": "per-frame detect + mask (no track, no reinspect)"
+    },
+    {
+      "mean_iou_flagged": 0.9580221799526418,
+      "exposure_gap_frames": 0,
+      "flicker_on_off_count": 0,
+      "reinspect_count": 0,
+      "masked_frames": 750,
+      "frame_count": 750,
+      "iou_n": 750,
+      "elapsed_s": 1.6362818329944275,
+      "approximate": true,
+      "notes": "Thinner loop. B1 plus cool.track_and_predict (IoU assign + DISOpticalFlow ULTRAFAST + EMA) and policy hysteresis. Orchestrator reinspect is off.",
+      "id": "B2",
+      "name": "B1 + track / flow-hold / hysteresis (no reinspect)"
+    },
+    {
+      "mean_iou_flagged": 0.9578562283066737,
+      "exposure_gap_frames": 0,
+      "flicker_on_off_count": 0,
+      "reinspect_count": 40,
+      "masked_frames": 750,
+      "frame_count": 750,
+      "elapsed_s": 4.279180042038206,
+      "approximate": false,
+      "tool_sequences": {
+        "DETECT\u2192REINSPECT\u2192MASK": 40,
+        "DETECT\u2192MASK": 710
+      },
+      "source": "vision_core.eval.evaluate_fixture + agent.orchestrator (Balanced)",
+      "notes": "Full current pipeline. Balanced mid-band score (~0.64) calls cool.reinspect_crop when budget/cooldown allow (40 budget, 12-frame cooldown), then BLUR. Same metric definitions as B0\u2013B2.",
+      "id": "B3",
+      "name": "B2 + budgeted orchestrator reinspect (current Balanced)"
+    },
+    {
+      "mean_iou_flagged": 0.9443581474808457,
+      "exposure_gap_frames": 0,
+      "flicker_on_off_count": 0,
+      "reinspect_count": 40,
+      "masked_frames": 750,
+      "frame_count": 750,
+      "iou_n": 750,
+      "elapsed_s": 2.138419416034594,
+      "approximate": true,
+      "change_gate": 0.08,
+      "brain_every": 3,
+      "brain_every_ms": 250.0,
+      "brain_ticks": 250,
+      "skipped_frames": 500,
+      "notes": "Shipping edge.reflex: change-gate 0.08 skips detect/reinspect; DIS flow-hold still warps the last mask; keyframe every 3 frames or 250 ms so the loop never goes blind. Approximate vs B3, which detects every frame.",
+      "id": "B4",
+      "name": "B3 + edge change-gate (skip detect, keep track + keyframes)"
+    },
+    {
+      "id": "B5",
+      "name": "COOL vs stock OpenCV on Graviton (same c8g.large, Balanced / B3)",
+      "status": "measured",
+      "approximate": false,
+      "cool_running": true,
+      "graviton": true,
+      "instance_id": "<box-instance-id>",
+      "instance_type": "c8g.large",
+      "ami": "ami-01db31139bc5615d8",
+      "availability_zone": "us-east-1d",
+      "policy": "balanced",
+      "source": "vision_core.eval.evaluate_fixture + agent.orchestrator (Balanced)",
+      "sources": {
+        "cool": "experiments/b5_cool/results.json",
+        "stock": "experiments/b5_stock/results.json"
+      },
+      "mean_iou_flagged": 0.9573124518804563,
+      "exposure_gap_frames": 1,
+      "flicker_on_off_count": 1,
+      "reinspect_count": 40,
+      "masked_frames": 749,
+      "frame_count": 750,
+      "elapsed_s": 10.007954696000013,
+      "opencv_version": "4.14.0-pre",
+      "cool": {
+        "opencv_version": "4.14.0-pre",
+        "opencv_package": "COOL /opt/cool (not pip)",
+        "mean_iou_flagged": 0.9573124518804563,
+        "exposure_gap_frames": 1,
+        "flicker_on_off_count": 1,
+        "reinspect_count": 40,
+        "masked_frames": 749,
+        "frame_count": 750,
+        "wall_clock_s": 10.007954696000013,
+        "timings_ms_mean": {
+          "scene_change": 0.481116258666475,
+          "extract_tiles": 0.668014003999815,
+          "detect_regions": 1.4435601174902928,
+          "reinspect_crop": 0.7729392250006129,
+          "track_and_predict": 1.7931505567428963,
+          "render_mask_spec": 0.46615717866628376,
+          "scene_cut": 2.9281887276364187,
+          "policy.evaluate": 0.022496794392498472
+        },
+        "tool_sequences": {
+          "TIMEOUT→NOT_PROTECTING": 1,
+          "DETECT→REINSPECT→MASK": 40,
+          "DETECT→MASK": 709
+        }
+      },
+      "stock": {
+        "opencv_version": "5.0.0",
+        "opencv_package": "opencv-python==5.0.0.93",
+        "mean_iou_flagged": 0.9582434716105751,
+        "exposure_gap_frames": 0,
+        "flicker_on_off_count": 0,
+        "reinspect_count": 40,
+        "masked_frames": 750,
+        "frame_count": 750,
+        "wall_clock_s": 6.472844301000009,
+        "timings_ms_mean": {
+          "scene_change": 0.4255379919995524,
+          "extract_tiles": 0.579440935999628,
+          "detect_regions": 1.7708937560000777,
+          "reinspect_crop": 0.8074447000019802,
+          "track_and_predict": 1.26938190400017,
+          "render_mask_spec": 0.2985808839996101,
+          "scene_cut": 2.9639725994664534,
+          "policy.evaluate": 0.019700146666953817
+        },
+        "tool_sequences": {
+          "DETECT→REINSPECT→MASK": 40,
+          "DETECT→MASK": 710
+        }
+      },
+      "notes": "MEASURED on <box-instance-id> c8g.large us-east-1d AMI ami-01db31139bc5615d8. COOL cv2 is 4.14.0-pre at /opt/cool — NOT OpenCV 5. Stock is opencv-python==5.0.0.93 (cv2 5.0.0) in a separate aarch64 venv. Laptop + local API remain OpenCV 5.0.0. Same fixture + Balanced policy. COOL frame 0 cool.detect_regions exceeded tool_timeout_ms=250 → TIMEOUT→NOT_PROTECTING (exposure_gap 1, flicker 1). Stock had no timeout. COOL detect mean 1.444 ms vs stock 1.771 ms; stock faster on track/render and wall-clock (10.008 s vs 6.473 s; stock ran second, warm disk). No CPU% or $/1k-frames invented. B5 is a valid COOL-on-Graviton measurement, not a 5.x vs 5.x bake-off."
+    }
+  ]
+}

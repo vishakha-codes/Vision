@@ -1,0 +1,107 @@
+{
+  "fixture": "fixtures/safe/synthetic_moving_regions.mp4",
+  "gt": "fixtures/safe/synthetic_moving_regions.gt.json",
+  "policy": "relaxed",
+  "policy_version": "relaxed-v2",
+  "opencv_version": "5.0.0",
+  "frame_count": 750,
+  "mean_iou_flagged": 0.9429534303681075,
+  "exposure_gap_frames": 750,
+  "flicker_on_off_count": 0,
+  "reinspect_crop_count": 24,
+  "masked_frames": 0,
+  "first_pass_flagged_score_mean": 0.6387436005758217,
+  "post_reinspect_flagged_score_mean": 0.9203289428974332,
+  "tool_sequences": {
+    "DETECT\u2192REINSPECT\u2192NO_ACTION": 24,
+    "DETECT\u2192NO_ACTION": 726
+  },
+  "agent": {
+    "reinspect_budget": 24,
+    "reinspect_cooldown_frames": 15,
+    "budget_left": 0,
+    "bedrock": "unavailable_local_controller"
+  },
+  "timings_ms": {
+    "scene_change": {
+      "mean": 0.26332178649803,
+      "p50": 0.2524169976823032,
+      "p95": 0.3570420085452497,
+      "n": 750
+    },
+    "extract_tiles": {
+      "mean": 0.30952154705300927,
+      "p50": 0.2950840280391276,
+      "p95": 0.4395419964566827,
+      "n": 750
+    },
+    "detect_regions": {
+      "mean": 1.0721232710250963,
+      "p50": 1.0535420151427388,
+      "p95": 1.2712079915218055,
+      "n": 750
+    },
+    "policy.evaluate": {
+      "mean": 0.009734017696852485,
+      "p50": 0.009417010005563498,
+      "p95": 0.013083044905215502,
+      "n": 750
+    },
+    "reinspect_crop": {
+      "mean": 0.4723351642799874,
+      "p50": 0.4682919825427234,
+      "p95": 0.5548339686356485,
+      "n": 24
+    },
+    "track_and_predict": {
+      "mean": 1.0203900020569563,
+      "p50": 1.0125410044565797,
+      "p95": 1.152374956291169,
+      "n": 750
+    },
+    "render_mask_spec": {
+      "mean": 0.0949076268201073,
+      "p50": 0.0690409797243774,
+      "p95": 0.1342499745078385,
+      "n": 750
+    },
+    "scene_cut": {
+      "mean": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "n": 749
+    }
+  },
+  "policy_spread": {
+    "sample_flagged_score": 0.6387436005758217,
+    "post_reinspect_score": 0.9203289428974332,
+    "strict": "OPAQUE_MASK",
+    "balanced": "BLUR",
+    "relaxed": "REVIEW",
+    "first_pass": {
+      "strict": "OPAQUE_MASK",
+      "balanced": "BLUR",
+      "relaxed": "REVIEW"
+    },
+    "post_reinspect": {
+      "strict": "OPAQUE_MASK",
+      "balanced": "BLUR",
+      "relaxed": "NO_ACTION"
+    },
+    "intended_mapping": {
+      "fixture_first_pass_score": 0.64,
+      "fixture_reinspect_score": 0.92,
+      "first_pass": {
+        "strict": "OPAQUE_MASK",
+        "balanced": "BLUR",
+        "relaxed": "REVIEW"
+      },
+      "post_reinspect": {
+        "strict": "OPAQUE_MASK",
+        "balanced": "BLUR",
+        "relaxed": "NO_ACTION"
+      },
+      "notes": "Strict treats ~0.64 as HIGH (class=block) and applies OPAQUE without reinspect. Balanced treats ~0.64 as MID and reinspecs only when budget/cooldown allow; block_trigger 0.97 keeps post-reinspect BLUR (not Strict OPAQUE). Relaxed first-pass ~0.64 is MID/below min_conf \u2192 REVIEW; overlay 0.94 / block 0.99 sit above typical reinspect ~0.92 so post-reinspect stays NO_ACTION."
+    }
+  }
+}

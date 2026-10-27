@@ -1,0 +1,97 @@
+{
+  "instance_id": "<box-instance-id>",
+  "instance_type": "c8g.large (2 vCPU Graviton4, 4 GiB)",
+  "workload": {
+    "pictures": 150,
+    "views_total": 750,
+    "views_per_picture": 5.0,
+    "profile": "l2",
+    "seed": 7,
+    "source": "vision_core.live.synth.photo_texture (benign)"
+  },
+  "rows": {
+    "cool_static_b4": {
+      "opencv": "4.14.0-pre",
+      "cool": true,
+      "custom_hal": "YES (carotene (ver 0.0.1) KleidiCV (ver 0.7.0))",
+      "graph": "320n_static_b4.onnx",
+      "crops_per_s": 32.66,
+      "speedup_vs_stock_dynamic": 1.264,
+      "picture_p50_ms": 182.09,
+      "picture_p95_ms": 188.83,
+      "forward_mean_ms": 148.931,
+      "non_dnn_mean_ms": 4.129,
+      "cpu_util_of_2_vcpu": 0.993,
+      "usd_per_1k_crops": 0.000678
+    },
+    "stock_dynamic": {
+      "opencv": "5.0.0",
+      "cool": false,
+      "custom_hal": "YES (carotene (ver 0.0.1) KleidiCV (ver 26.03))",
+      "graph": "320n.onnx",
+      "crops_per_s": 25.83,
+      "speedup_vs_stock_dynamic": 1.0,
+      "picture_p50_ms": 230.46,
+      "picture_p95_ms": 235.92,
+      "forward_mean_ms": 190.146,
+      "non_dnn_mean_ms": 3.422,
+      "cpu_util_of_2_vcpu": 0.993,
+      "usd_per_1k_crops": 0.000858
+    },
+    "stock_static_b4": {
+      "opencv": "5.0.0",
+      "cool": false,
+      "custom_hal": "YES (carotene (ver 0.0.1) KleidiCV (ver 26.03))",
+      "graph": "320n_static_b4.onnx",
+      "crops_per_s": 25.66,
+      "speedup_vs_stock_dynamic": 0.993,
+      "picture_p50_ms": 232.45,
+      "picture_p95_ms": 238.02,
+      "forward_mean_ms": 191.496,
+      "non_dnn_mean_ms": 3.383,
+      "cpu_util_of_2_vcpu": 0.993,
+      "usd_per_1k_crops": 0.000864
+    }
+  },
+  "parity": {
+    "reference": "stock_dynamic (OpenCV 5.0.0 wheel, original nudenet 320n.onnx)",
+    "raw": {
+      "cool_static_b4": {
+        "shape": [
+          4,
+          22,
+          2100
+        ],
+        "max_abs_diff_class_scores": 0.003177611157298088,
+        "max_abs_diff_box_px": 6.6486968994140625,
+        "max_class_score_ref": 0.19527092576026917,
+        "argmax_class_agreement": 0.98
+      },
+      "stock_static_b4": {
+        "shape": [
+          4,
+          22,
+          2100
+        ],
+        "max_abs_diff_class_scores": 0.0,
+        "max_abs_diff_box_px": 0.0,
+        "max_class_score_ref": 0.19527092576026917,
+        "argmax_class_agreement": 1.0
+      }
+    },
+    "top_dets": {
+      "cool_static_b4": {
+        "pictures": 150,
+        "same_label_list": 148,
+        "pictures_with_any_det_ref": 10,
+        "max_abs_score_diff": 0.006000000000000019
+      },
+      "stock_static_b4": {
+        "pictures": 150,
+        "same_label_list": 150,
+        "pictures_with_any_det_ref": 10,
+        "max_abs_score_diff": 0.0
+      }
+    }
+  }
+}
