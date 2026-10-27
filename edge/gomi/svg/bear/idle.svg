@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" data-skin="bear" data-state="idle">
+  <defs>
+    <radialGradient id="clay" cx="38%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#FFFEFB"/>
+      <stop offset="100%" stop-color="#E6DFD6"/>
+    </radialGradient>
+  </defs>
+  <ellipse id="shadow" cx="80" cy="148" rx="34" ry="7" fill="#1A1412" opacity="0.16"/>
+  <path id="ear-l" d="M 50.0 46.0 L 34.0 58.0 L 66.0 58.0 Z" fill="url(#clay)" opacity="1.00"/>
+  <path id="ear-r" d="M 110.0 46.0 L 94.0 58.0 L 126.0 58.0 Z" fill="url(#clay)" opacity="1.00"/>
+  <ellipse id="ear-l-inner" cx="50.0" cy="54.6" rx="6.7" ry="3.4" fill="#E8B8A8" opacity="1.00"/>
+  <ellipse id="ear-r-inner" cx="110.0" cy="54.6" rx="6.7" ry="3.4" fill="#E8B8A8" opacity="1.00"/>
+  <ellipse id="puff-l" cx="45.4" cy="106.0" rx="22.0" ry="18.0" fill="url(#clay)" opacity="0.00"/>
+  <ellipse id="puff-r" cx="114.6" cy="108.0" rx="20.0" ry="16.0" fill="url(#clay)" opacity="0.00"/>
+  <ellipse id="body" cx="80.0" cy="98.0" rx="48.0" ry="44.0" fill="url(#clay)" opacity="1"/>
+  <ellipse id="highlight" cx="66.6" cy="82.2" rx="17.3" ry="9.7" fill="#FFFFFF" opacity="0.55"/>
+  <ellipse id="blush" cx="80.0" cy="107.7" rx="26.4" ry="8" fill="#F0B0A4" opacity="0.18"/>
+  <ellipse id="left-eye" cx="64.0" cy="92.0" rx="7.2" ry="8.4" fill="#2C2824" opacity="1"/>
+  <ellipse id="right-eye" cx="96.0" cy="92.0" rx="7.2" ry="8.4" fill="#2C2824" opacity="1"/>
+  <ellipse id="left-pupil" cx="65.2" cy="90.5" rx="2.4" ry="2.4" fill="#FFFFFF" opacity="0.92"/>
+  <ellipse id="right-pupil" cx="97.2" cy="90.5" rx="2.4" ry="2.4" fill="#FFFFFF" opacity="0.92"/>
+  <path id="mouth" d="M 64.0 112.0 Q 80.0 124.0 96.0 112.0" fill="none" stroke="#2C2824" stroke-width="2.6" opacity="1"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Gomi">
+  <!-- Original Screen Guardian character. Not Coucou, not Mochi. -->
+  <title>Gomi</title>
+  <ellipse cx="80" cy="138" rx="36" ry="8" fill="#0c1014" fill-opacity="0.35"/>
+  <ellipse cx="42" cy="86" rx="13" ry="16" fill="#2f9b86"/>
+  <ellipse cx="120" cy="88" rx="12" ry="15" fill="#2f9b86"/>
+  <ellipse cx="62" cy="128" rx="13" ry="8" fill="#2f9b86"/>
+  <ellipse cx="100" cy="128" rx="13" ry="8" fill="#2f9b86"/>
+  <path d="M74 28 C104 36 128 58 126 92 C124 118 108 136 80 142 C52 136 36 114 36 84 C36 56 50 36 74 28 Z"
+        fill="#2f9b86" stroke="#12302c" stroke-width="3"/>
+  <ellipse cx="80" cy="100" rx="26" ry="22" fill="#f0b27a"/>
+  <line x1="68" y1="40" x2="78" y2="12" stroke="#12302c" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="78" cy="12" rx="11" ry="11" fill="#ffa83c" fill-opacity="0.45"/>
+  <ellipse cx="84" cy="8" rx="5" ry="3.2" fill="#ffd65a" transform="rotate(20 84 8)"/>
+  <ellipse cx="86" cy="16" rx="5" ry="3.2" fill="#ffd65a" transform="rotate(92 86 16)"/>
+  <ellipse cx="76" cy="18" rx="5" ry="3.2" fill="#ffd65a" transform="rotate(164 76 18)"/>
+  <ellipse cx="70" cy="10" rx="5" ry="3.2" fill="#ffd65a" transform="rotate(236 70 10)"/>
+  <ellipse cx="78" cy="6" rx="5" ry="3.2" fill="#ffd65a" transform="rotate(308 78 6)"/>
+  <circle cx="78" cy="12" r="4" fill="#ffd65a"/>
+  <ellipse cx="66" cy="74" rx="11" ry="13" fill="#f6f4ec"/>
+  <ellipse cx="98" cy="73" rx="10" ry="12" fill="#f6f4ec"/>
+  <ellipse cx="68" cy="76" rx="5" ry="6" fill="#182024"/>
+  <ellipse cx="99" cy="75" rx="4.5" ry="5.5" fill="#182024"/>
+  <circle cx="71" cy="71" r="1.6" fill="#ffffff"/>
+  <circle cx="102" cy="70" r="1.4" fill="#ffffff"/>
+  <polygon points="80,84 75,92 85,92" fill="#b06240"/>
+  <path d="M70 100 Q80 110 92 100" fill="none" stroke="#382824" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
