@@ -1,0 +1,30 @@
+{
+  "name": "balanced",
+  "description": "Default Screen Guardian preset. Intended mapping on synthetic_moving_regions: first-pass ~0.64 is MID (band [0.50, 0.66)) so the agent may REINSPECT, then BLUR. High (>=0.66) skips reinspect and BLURs. Low (<0.50) is NO_ACTION. block_trigger 0.97 sits above typical reinspect ~0.92 so Balanced does not collapse onto Strict OPAQUE_MASK.",
+  "version": 2,
+  "thresholds": {
+    "flagged_class_min_confidence": 0.50,
+    "flagged_class_min_area_px": 800,
+    "flagged_class_min_frames": 5,
+    "motion_min_iou_to_track": 0.30,
+    "overlay_trigger_score": 0.55,
+    "block_trigger_score": 0.97,
+    "uncertain_band_low": 0.50,
+    "uncertain_band_high": 0.66
+  },
+  "agent": {
+    "reinspect_budget": 40,
+    "reinspect_cooldown_frames": 12,
+    "tool_timeout_ms": 250
+  },
+  "classes": {
+    "flagged": {
+      "action": "overlay",
+      "min_confidence": 0.50
+    },
+    "safe": {
+      "action": "allow",
+      "min_confidence": 0.20
+    }
+  }
+}

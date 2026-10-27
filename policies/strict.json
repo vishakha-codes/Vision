@@ -1,0 +1,30 @@
+{
+  "name": "strict",
+  "description": "Lowest-tolerance Screen Guardian preset. Intended mapping on synthetic_moving_regions: first-pass ~0.64 is HIGH (uncertain_high 0.50) so the agent APPLIES OPAQUE_MASK with no reinspect. Post-reinspect ~0.92 stays OPAQUE_MASK (class=block). Fail-closed on tool timeout (HOLD / FULL_WINDOW_MASK).",
+  "version": 2,
+  "thresholds": {
+    "flagged_class_min_confidence": 0.35,
+    "flagged_class_min_area_px": 400,
+    "flagged_class_min_frames": 3,
+    "motion_min_iou_to_track": 0.25,
+    "overlay_trigger_score": 0.40,
+    "block_trigger_score": 0.70,
+    "uncertain_band_low": 0.28,
+    "uncertain_band_high": 0.50
+  },
+  "agent": {
+    "reinspect_budget": 20,
+    "reinspect_cooldown_frames": 25,
+    "tool_timeout_ms": 250
+  },
+  "classes": {
+    "flagged": {
+      "action": "block",
+      "min_confidence": 0.35
+    },
+    "safe": {
+      "action": "allow",
+      "min_confidence": 0.20
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "live_aggressive",
+  "mode": "aggressive",
+  "version": 2,
+  "description": "Kids. Suggestive + explicit intimate classes at low thresholds; cover the WHOLE picture (+pad) on any hit; UNSURE is covered too (fail closed) and gets a rate-limited second look that may clear it; PENDING (not classified yet) pictures are pre-frosted ('blur until safe', prefrost.mode = always).",
+  "classes": [
+    "FEMALE_GENITALIA_COVERED",
+    "FEMALE_BREAST_COVERED",
+    "FEMALE_BREAST_EXPOSED",
+    "MALE_BREAST_EXPOSED",
+    "BELLY_EXPOSED",
+    "BUTTOCKS_COVERED",
+    "BUTTOCKS_EXPOSED",
+    "ANUS_COVERED",
+    "ANUS_EXPOSED",
+    "FEMALE_GENITALIA_EXPOSED",
+    "MALE_GENITALIA_EXPOSED"
+  ],
+  "score_on": 0.25,
+  "score_unsure": 0.15,
+  "class_score_on": {
+    "MALE_BREAST_EXPOSED": 0.35,
+    "BELLY_EXPOSED": 0.3
+  },
+  "mask": "picture",
+  "picture_pad_px": 6,
+  "part_pad_frac": 0.12,
+  "unsure_action": "mask",
+  "unsure_after_second_look": "mask",
+  "prefrost": {
+    "mode": "always",
+    "heavy_masks": 3,
+    "heavy_window_s": 10
+  },
+  "style": "frost",
+  "explicit_style": "opaque",
+  "second_look": {
+    "rate_per_s": 4.0,
+    "burst": 4.0,
+    "margin_frac": 0.06
+  },
+  "budget_ms": 120,
+  "notes": {
+    "score_on": "0.25 ~ the old strict/balanced live floors (0.22 / 0.30); kids mode prefers over-blur.",
+    "score_unsure": "0.15..0.25 is UNSURE: masked now, second look (2x tiles) may clear it.",
+    "class_score_on": "Shirtless men / bare bellies (beach, sport) are the common false hits; nudged up a little.",
+    "explicit_style": "Pictures with an EXPLICIT class hit use the opaque cover instead of frost.",
+    "never": "FACE_* / FEET_* / ARMPITS_* / BELLY_COVERED never count (vision_core.nudenet_labels.NEVER_MASK_CLASSES).",
+    "clipped_fail_closed": "A picture cut by the frame / a pane edge that has never been seen whole is covered (CLIPPED_UNVERIFIED) until it is fully on screen and checked; one seen whole before keeps that verdict while it scrolls out.",
+    "clipped_release": "Bounds the clipped cover: once a clipped picture has not moved for 3 calls, its visible part was checked SAFE, and that part is large (h >= 0.5 w, or >= 30% of the content height), the cover is released. Slivers and pictures still scrolling in stay covered.",
+    "prefrost": "always (for now): every not-yet-checked picture is pre-frosted until classified ('blur until safe'). Switch to \"adaptive\" to pre-frost only on heavy pages."
+  },
+  "clipped_fail_closed": true,
+  "clipped_release": {
+    "static_calls": 3,
+    "min_aspect": 0.5,
+    "min_view_frac": 0.3
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "relaxed",
+  "description": "Highest-tolerance Screen Guardian preset. Intended mapping on synthetic_moving_regions: first-pass ~0.64 is MID (band [0.58, 0.80)) — budgeted reinspect only. overlay 0.94 and block 0.99 sit above typical reinspect ~0.92, so first-pass AND post-reinspect stay NO_ACTION / REVIEW (never OPAQUE like Strict, never a clip-wide BLUR like Balanced).",
+  "version": 2,
+  "thresholds": {
+    "flagged_class_min_confidence": 0.70,
+    "flagged_class_min_area_px": 1600,
+    "flagged_class_min_frames": 8,
+    "motion_min_iou_to_track": 0.40,
+    "overlay_trigger_score": 0.94,
+    "block_trigger_score": 0.99,
+    "uncertain_band_low": 0.58,
+    "uncertain_band_high": 0.80
+  },
+  "agent": {
+    "reinspect_budget": 24,
+    "reinspect_cooldown_frames": 15,
+    "tool_timeout_ms": 250
+  },
+  "classes": {
+    "flagged": {
+      "action": "overlay",
+      "min_confidence": 0.70
+    },
+    "safe": {
+      "action": "allow",
+      "min_confidence": 0.20
+    }
+  }
+}

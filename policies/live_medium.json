@@ -1,0 +1,59 @@
+{
+  "name": "live_medium",
+  "mode": "medium",
+  "version": 2,
+  "description": "Teens. Explicit (exposed) classes at 0.45 plus covered intimate classes at a stricter 0.60; mask the padded BODY-PART boxes (unioned per figure), not the whole picture, so sex-ed / health pages stay readable. UNSURE gets a second look before anything is masked; still UNSURE after it masks the parts. Pre-frost only on a heavy page (adaptive).",
+  "classes": [
+    "FEMALE_GENITALIA_EXPOSED",
+    "MALE_GENITALIA_EXPOSED",
+    "ANUS_EXPOSED",
+    "FEMALE_BREAST_EXPOSED",
+    "BUTTOCKS_EXPOSED",
+    "FEMALE_BREAST_COVERED",
+    "FEMALE_GENITALIA_COVERED",
+    "BUTTOCKS_COVERED",
+    "ANUS_COVERED"
+  ],
+  "score_on": 0.45,
+  "score_unsure": 0.3,
+  "class_score_on": {
+    "FEMALE_BREAST_COVERED": 0.6,
+    "FEMALE_GENITALIA_COVERED": 0.6,
+    "BUTTOCKS_COVERED": 0.6,
+    "ANUS_COVERED": 0.6
+  },
+  "class_score_unsure": {
+    "FEMALE_BREAST_COVERED": 0.45,
+    "FEMALE_GENITALIA_COVERED": 0.45,
+    "BUTTOCKS_COVERED": 0.45,
+    "ANUS_COVERED": 0.45
+  },
+  "mask": "parts",
+  "picture_pad_px": 6,
+  "part_pad_frac": 0.12,
+  "unsure_action": "second_look",
+  "unsure_after_second_look": "mask",
+  "prefrost": {
+    "mode": "adaptive",
+    "heavy_masks": 3,
+    "heavy_window_s": 10
+  },
+  "style": "frost",
+  "explicit_style": "frost",
+  "second_look": {
+    "rate_per_s": 4.0,
+    "burst": 4.0,
+    "margin_frac": 0.06
+  },
+  "budget_ms": 120,
+  "notes": {
+    "score_on": "0.45 for the EXPOSED classes. Not calibrated on real screens: the only real-screen numbers we have are the user's live test (26 Oct), where NudeNet 320n scored FEMALE_BREAST_COVERED 0.72-0.84 and FEMALE_GENITALIA_COVERED 0.64 on content that should have been masked. Exposed-class scores on screen-sized thumbnails are unmeasured; recalibrate privately.",
+    "part_pad_frac": "12% of each part box on every side, then parts that touch / overlap are unioned (cluster_nsfw) per figure and clipped to the picture.",
+    "unsure_action": "Wait for the second look (token bucket, ~4/s) instead of masking on a weak first pass.",
+    "clipped_edge_band": "A body part cut by the frame / pane edge is too partial for the detector. Slivers too thin to classify are covered, and a picture that already showed an explicit hit also gets a band (0.35 x its width) along the cut edge until it is fully on screen. Pictures seen whole keep their part boxes while they scroll out.",
+    "classes": "Covered intimate classes (lingerie / see-through / swimwear crotch, breast, buttocks, anus) count too, at a stricter 0.60 (class_score_on); their UNSURE band is 0.45-0.60 (class_score_unsure) so ordinary swimwear around 0.3-0.45 is left alone. FACE_* / FEET_* / ARMPITS_* / BELLY_* and MALE_BREAST_EXPOSED are not counted in medium. Names must match NudeNet's labels exactly (vision_core.nudenet_labels.NUDENET_LABELS); unknown names are dropped.",
+    "prefrost": "adaptive: no pre-frost on normal pages (it looks bad). Only once a window has had >= heavy_masks active masks within the last heavy_window_s seconds (an NSFW site / heavy page) are new, not-yet-checked pictures pre-frosted until classified."
+  },
+  "clipped_fail_closed": false,
+  "clipped_edge_band": 0.35
+}

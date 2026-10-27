@@ -1,0 +1,30 @@
+{
+  "name": "live_off",
+  "mode": "off",
+  "version": 2,
+  "description": "Adults. No masks; analyze() returns immediately without proposing or classifying.",
+  "classes": [],
+  "score_on": 1.01,
+  "score_unsure": 1.01,
+  "class_score_on": {},
+  "mask": "none",
+  "picture_pad_px": 0,
+  "part_pad_frac": 0.0,
+  "unsure_action": "allow",
+  "unsure_after_second_look": "allow",
+  "prefrost": {
+    "mode": "never",
+    "heavy_masks": 3,
+    "heavy_window_s": 10
+  },
+  "style": "frost",
+  "explicit_style": "frost",
+  "second_look": {
+    "rate_per_s": 0.0,
+    "burst": 0.0,
+    "margin_frac": 0.0
+  },
+  "budget_ms": 0,
+  "notes": {},
+  "clipped_fail_closed": false
+}
