@@ -1,0 +1,28 @@
+{
+  "account": "<account-id>",
+  "bucket": "arn:aws:s3:::sg-v2-kids-chat-<account-id>",
+  "guardrail_kids_arn": "arn:aws:bedrock:us-east-1:<account-id>:guardrail/<guardrail-id>",
+  "guardrail_kids_id": "<guardrail-id>",
+  "guardrail_kids_version": "3",
+  "guardrail_teens_arn": "arn:aws:bedrock:us-east-1:<account-id>:guardrail/<guardrail-id>",
+  "guardrail_teens_id": "<guardrail-id>",
+  "guardrail_teens_version": "3",
+  "memory_arn": "arn:aws:bedrock-agentcore:us-east-1:<account-id>:memory/screen_guardian_kids_chat_mem-<id>",
+  "memory_id": "screen_guardian_kids_chat_mem-<id>",
+  "memory_status": "ACTIVE",
+  "memory_strategies": {
+    "SUMMARIZATION": "session_summary-<id>",
+    "USER_PREFERENCE": "interests-<id>"
+  },
+  "models": {
+    "chat": "us.amazon.nova-2-lite-v1:0",
+    "explain": "us.amazon.nova-pro-v1:0",
+    "fallback": "us.amazon.nova-lite-v1:0"
+  },
+  "region": "us-east-1",
+  "role_runtime": "arn:aws:iam::<account-id>:role/sg-v2-kids-chat-runtime",
+  "runtime_arn": "arn:aws:bedrock-agentcore:us-east-1:<account-id>:runtime/screen_guardian_kids_chat-<id>",
+  "runtime_id": "screen_guardian_kids_chat-<id>",
+  "runtime_status": "READY",
+  "runtime_version": "3"
+}
