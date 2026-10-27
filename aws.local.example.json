@@ -1,0 +1,7 @@
+{
+  "box_instance_id": "<box-instance-id>",
+  "box_security_group_id": "<box-security-group-id>",
+  "box_subnet_id": "<box-subnet-id>",
+  "vpc_id": "<vpc-id>",
+  "steward_guardrail_id": "<steward-guardrail-id>"
+}
